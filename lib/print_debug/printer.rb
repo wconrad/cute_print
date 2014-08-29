@@ -1,5 +1,3 @@
-require 'pp' #DEBUG
-
 require_relative "ruby_parser"
 
 module PrintDebug
