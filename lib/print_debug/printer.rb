@@ -6,6 +6,7 @@ module PrintDebug
     attr_accessor :out
 
     def initialize(attrs = {})
+      @out = $stderr
       attrs.each { |name, value| send "#{name}=", value }
     end
 
