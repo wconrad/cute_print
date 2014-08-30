@@ -40,11 +40,12 @@ You can have the debug source printed along with the value:
 
     i = 1
     j = 2
-    q {1 + 2}         # prints "1 + 2 is 3"
+    q {1 + 2}         # prints: 1 + 2 is 3
 
 You can print the source filename and line number:
 
-    ql "abc"        # prints foo.rb:12: "abc"
+    ql "abc"        # prints: foo.rb:12: "abc"
+    ql {1 + 2}      # prints: foo.rb:13: 1 + 2 is 3
 
 Call chains can be a pain to debug, but it's easy with #tapq:
 
