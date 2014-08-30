@@ -1,10 +1,10 @@
-require_relative "../spec_helper"
+require_relative "spec_helper"
 
 require "stringio"
 
-require "print_debug/core_ext/object"
+require "print_debug"
 
-describe Object do
+describe PrintDebug do
 
   describe "#q" do
     When(:stderr) do
