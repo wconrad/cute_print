@@ -1,17 +1,15 @@
 require "forwardable"
 
+require_relative "default_printer"
 require_relative "printer"
 
 module PrintDebug
+
   module Mixin
 
     extend Forwardable
 
-    def print_debug_printer
-      @print_debug_printer ||= Printer.new
-    end
-
-    def_delegators :print_debug_printer,
+    def_delegators 'PrintDebug::DefaultPrinter.printer',
     :q
 
   end

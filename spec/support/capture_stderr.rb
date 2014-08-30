@@ -1,3 +1,5 @@
+require "stringio"
+
 module CapturesStderr
 
   def capture_stderr
