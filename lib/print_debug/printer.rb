@@ -3,8 +3,10 @@ require_relative "ruby_parser"
 module PrintDebug
   class Printer
 
-    def initialize(opts = {})
-      @out = opts.fetch(:out) { $stderr }
+    attr_accessor :out
+
+    def initialize(attrs = {})
+      attrs.each { |name, value| send "#{name}=", value }
     end
 
     def q(*values, &block)

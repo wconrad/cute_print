@@ -29,10 +29,21 @@ module PrintDebug
         Then { result == Failure(ArgumentError) }
       end
 
-      context "closure" do
+      context "closure (one line)" do
         Given(:out) { StringIO.new }
         Given(:printer) { Printer.new(:out => out) }
         When { printer.q {1 + 2} }
+        Then { out.string == "(1 + 2) is 3\n" }
+      end
+
+      context "closure (two lines)" do
+        Given(:out) { StringIO.new }
+        Given(:printer) { Printer.new(:out => out) }
+        When do
+          printer.q do
+            (1 + 2)
+          end
+        end
         Then { out.string == "(1 + 2) is 3\n" }
       end
 

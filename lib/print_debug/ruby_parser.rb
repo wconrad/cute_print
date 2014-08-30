@@ -39,14 +39,14 @@ module PrintDebug
     def parse_source(source)
       lines = source.lines.to_a
       starting_line_index = @line_number - 1
-      ending_line_index = @line_number
+      ending_line_index = starting_line_index
       sexp = nil
       while !sexp && ending_line_index < lines.size
         begin
           snippet = lines.to_a[starting_line_index..ending_line_index].join
           sexp = parser.parse(snippet)
           return ParsedCode.new(sexp)
-        rescue RubyParser::SyntaxError
+        rescue Racc::ParseError
           ending_line_index += 1
           raise if ending_line_index >= lines.size
         end

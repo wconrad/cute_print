@@ -12,9 +12,18 @@ module PrintDebug
       include WrapsSexp
 
       def first_call_to_method(method_name)
-        @sexp.deep_each do |node|
+        MethodCall.new(method_call_node(method_name))
+      end
+
+      private
+
+      def method_call_node(method_name)
+        if MethodCall.call_to_method?(@sexp, method_name)
+          return @sexp
+        end
+        @sexp.each_sexp do |node|
           if MethodCall.call_to_method?(node, method_name)
-            return MethodCall.new(node)
+            return node
           end
         end
         raise "Method call not found"
