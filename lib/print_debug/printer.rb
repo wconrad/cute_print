@@ -1,8 +1,11 @@
+require_relative "finds_foreign_caller"
 require_relative "ruby_parser"
 require_relative "stderr_out"
 
 module PrintDebug
   class Printer
+
+    include FindsForeignCaller
 
     attr_accessor :out
 
@@ -33,17 +36,6 @@ module PrintDebug
     end
 
     private
-
-    def lib_path
-      File.dirname(__FILE__)
-    end
-
-    def nearest_foreign_caller
-      caller.find do |s|
-        path = s.split(":").first
-        !File.expand_path(path).include?(File.expand_path(lib_path))
-      end
-    end
 
     def print(method, values, block)
       if block && !values.empty?
