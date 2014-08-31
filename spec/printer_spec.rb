@@ -49,6 +49,18 @@ module PrintDebug
 
     end
 
+    describe "#ql" do
+
+      Given(:out) { StringIO.new }
+      Given(:printer) { Printer.new(:out => out) }
+      When do
+        @location = [File.basename(__FILE__), __LINE__ + 1].join(":")
+        printer.ql [1, 2]
+      end
+      Then { out.string == "#{@location}: [1, 2]\n" }
+
+    end
+
   end
 
 end

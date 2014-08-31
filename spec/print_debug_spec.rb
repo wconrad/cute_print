@@ -26,10 +26,11 @@ describe PrintDebug do
   describe "#ql" do
     When(:stderr) do
       capture_stderr do
+        @location = [File.basename(__FILE__), __LINE__ + 1].join(":")
         ql 123
       end
     end
-    Then { stderr == "print_debug_spec.rb:29: 123\n" }
+    Then { stderr == "#{@location}: 123\n" }
   end
 
   describe 'configure output' do
