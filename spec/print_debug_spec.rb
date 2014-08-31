@@ -4,7 +4,15 @@ require "stringio"
 
 require "print_debug"
 
+# Test the library as the user uses it.  The other specs test
+# internals.
+
 describe PrintDebug do
+
+  before(:each) do
+    # Private API.  Don't do this at home.
+    PrintDebug::DefaultPrinter.printer.set_defaults
+  end
 
   describe "#q" do
     When(:stderr) do
@@ -13,6 +21,15 @@ describe PrintDebug do
       end
     end
     Then { stderr == "123\n" }
+  end
+
+  describe "#ql" do
+    When(:stderr) do
+      capture_stderr do
+        ql 123
+      end
+    end
+    Then { stderr == "print_debug_spec.rb:29: 123\n" }
   end
 
   describe 'configure output' do

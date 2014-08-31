@@ -1,5 +1,3 @@
-require "forwardable"
-
 require_relative "default_printer"
 require_relative "printer"
 
@@ -7,10 +5,17 @@ module PrintDebug
 
   module Mixin
 
-    extend Forwardable
+    # Don't use Forwardable to do this delegation: When finding the
+    # call location, we look for the nearest call location that is not
+    # in this library.  We must not stop at forwardable.
+    def self.delegate_to_printer(method)
+      define_method method do |*args, &block|
+        PrintDebug::DefaultPrinter.printer.send(method, *args, &block)
+      end
+    end
 
-    def_delegators 'PrintDebug::DefaultPrinter.printer',
-    :q
+    delegate_to_printer :q
+    delegate_to_printer :ql
 
   end
 end
