@@ -32,6 +32,27 @@ describe PrintDebug do
     Then { stderr == "#{@location}: 123\n" }
   end
 
+  describe "#tapq" do
+    When do
+      @stderr = capture_stderr do
+        @result = ["1", "2"].map(&:to_i).tapq.inject(:+)
+      end
+    end
+    Then { @result == 3}
+    Then { @stderr == "[1, 2]\n" }
+  end
+
+  describe "#tapql" do
+    When do
+      @stderr = capture_stderr do
+        @location = [File.basename(__FILE__), __LINE__ + 1].join(":")
+        @result = ["1", "2"].map(&:to_i).tapql.inject(:+)
+      end
+    end
+    Then { @result == 3}
+    Then { @stderr == "#{@location}: [1, 2]\n" }
+  end
+
   describe 'configure output' do
     Given(:io) { StringIO.new }
     Given do

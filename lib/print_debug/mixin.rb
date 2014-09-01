@@ -17,5 +17,15 @@ module PrintDebug
     delegate_to_printer :q
     delegate_to_printer :ql
 
+    def tapq
+      q self
+      self
+    end
+
+    def tapql
+      ql self
+      self
+    end
+
   end
 end

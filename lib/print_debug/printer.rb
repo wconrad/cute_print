@@ -15,6 +15,11 @@ module PrintDebug
       attrs.each { |name, value| send "#{name}=", value }
     end
 
+    def set_defaults
+      @out = StderrOut.new
+      @position_format = "%<filename>s:%<line_number>d: "
+    end
+
     def q(*values, &block)
       print(__method__, values, block) do |line|
         @out.puts line
@@ -28,11 +33,6 @@ module PrintDebug
         position = format_position(path, line_number)
         @out.puts "#{position}#{line}"
       end
-    end
-
-    def set_defaults
-      @out = StderrOut.new
-      @position_format = "%<filename>s:%<line_number>d: "
     end
 
     private

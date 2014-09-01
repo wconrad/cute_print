@@ -50,7 +50,6 @@ module PrintDebug
     end
 
     describe "#ql" do
-
       Given(:out) { StringIO.new }
       Given(:printer) { Printer.new(:out => out) }
       When do
@@ -58,7 +57,6 @@ module PrintDebug
         printer.ql [1, 2]
       end
       Then { out.string == "#{@location}: [1, 2]\n" }
-
     end
 
   end
