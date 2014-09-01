@@ -10,7 +10,7 @@ require "print_debug"
 describe PrintDebug do
 
   before(:each) do
-    PrintDebug::Configure.reset
+    PrintDebug.configure { |c| c.reset }
   end
 
   describe "#q" do

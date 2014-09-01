@@ -1,7 +1,6 @@
 Feature: Configure output
 
-  By default, output is written to $stderr.  You can change where
-  output goes.
+  You can reset the configuration to itse defaults.
 
   Scenario: Write to $stdout
     Given a file with:
@@ -13,9 +12,16 @@ Feature: Configure output
       end
 
       q "abc"
+      PrintDebug.configure { |c| c.reset }
+      q 123
       """
     Then stdout should be
       """
       "abc"
+
+      """
+    And stderr should be
+      """
+      123
 
       """

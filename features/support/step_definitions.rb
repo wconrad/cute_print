@@ -1,7 +1,7 @@
 require_relative "../../lib/print_debug"
 
 Before do
-  PrintDebug::Configure.reset
+  PrintDebug.configure { |c| c.reset }
 end
 
 Given(/^a file with:$/) do |contents|
