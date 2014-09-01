@@ -8,6 +8,7 @@ module PrintDebug
     include FindsForeignCaller
 
     attr_accessor :out
+    attr_accessor :position_format
 
     def initialize(attrs = {})
       set_defaults
@@ -22,17 +23,16 @@ module PrintDebug
 
     def ql(*values, &block)
       path, line_number = nearest_foreign_caller.split(":")
-      filename = File.basename(path)
       line_number = line_number.to_i
       print(__method__, values, block) do |line|
-        @out.puts "%s:%d: %s" % [
-          filename, line_number, line
-        ]
+        position = format_position(path, line_number)
+        @out.puts "#{position}#{line}"
       end
     end
 
     def set_defaults
       @out = StderrOut.new
+      @position_format = "%<filename>s:%<line_number>d: "
     end
 
     private
@@ -55,6 +55,15 @@ module PrintDebug
           yield value.inspect
         end
       end
+    end
+
+    def format_position(path, line_number)
+      position_values = {
+        path: path,
+        filename: File.basename(path),
+        line_number: line_number,
+      }
+      @position_format % position_values
     end
 
   end

@@ -13,8 +13,13 @@ module PrintDebug
 
     def_delegator :@printer, :set_defaults, :reset
 
-    def_delegators :@printer,
-    :out=
+    def self.delegate_accessor(name)
+      def_delegator :@printer, name
+      def_delegator :@printer, "#{name}="
+    end
+
+    delegate_accessor :position_format
+    delegate_accessor :out
 
   end
 
