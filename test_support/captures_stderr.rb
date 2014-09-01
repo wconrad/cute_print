@@ -14,7 +14,3 @@ module CapturesStderr
   end
 
 end
-
-RSpec.configure do |c|
-  c.include CapturesStderr
-end
