@@ -4,8 +4,11 @@ require_relative "wraps_sexp"
 module PrintDebug
   class RubyParser
 
-    # How this class works is stolen this excellent code:
-    # https://github.com/sconover/wrong/blob/30475fc5ac9d0f73135d229b1b44c045156a7e7a/lib/wrong/d.rb
+    # How this class works is cribbed this excellent code:
+    #
+    #     https://github.com/sconover/wrong/blob/30475fc5ac9d0f73135d229b1b44c045156a7e7a/lib/wrong/d.rb
+    #
+    # @api private
 
     class ParsedCode
 
@@ -30,5 +33,6 @@ module PrintDebug
       end
 
     end
+
   end
 end

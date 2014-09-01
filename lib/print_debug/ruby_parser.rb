@@ -4,8 +4,11 @@ require_relative "ruby_parser/parsed_code"
 
 module PrintDebug
 
-  # This class is very much stolen from this excellent code:
-  # https://github.com/sconover/wrong/blob/30475fc5ac9d0f73135d229b1b44c045156a7e7a/lib/wrong/chunk.rb
+  # This class is very much cribbed from this excellent code:
+  #
+  #     https://github.com/sconover/wrong/blob/30475fc5ac9d0f73135d229b1b44c045156a7e7a/lib/wrong/chunk.rb
+  #
+  # @api private
 
   class RubyParser
 

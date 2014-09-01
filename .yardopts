@@ -1,0 +1,6 @@
+--exclude '[~#]$'
+--markup markdown
+--readme README.md
+lib/**/*.rb
+-
+LICENSE

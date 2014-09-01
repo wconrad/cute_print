@@ -4,6 +4,7 @@ require_relative "ruby_generator"
 
 module PrintDebug
 
+  # @api private
   class RubyGenerator
 
     def self.to_ruby(sexp)

@@ -3,6 +3,7 @@ require_relative "../ruby_generator"
 module PrintDebug
   class RubyParser
 
+    # @api private
     module WrapsSexp
 
       def initialize(sexp)

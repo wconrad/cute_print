@@ -3,25 +3,33 @@ require_relative "printer"
 
 module PrintDebug
 
+  # Methods mixed into Object, and so available globally.
+  #
+  # @note The methods in this module are part of the public API, but
+  #   the module itself is not.
+
   module Mixin
 
-    # Don't use Forwardable to do this delegation: When finding the
-    # call location, we look for the nearest call location that is not
-    # in this library.  We must not stop at forwardable.
-    def self.delegate_to_printer(method)
-      define_method method do |*args, &block|
-        PrintDebug::DefaultPrinter.printer.send(method, *args, &block)
-      end
+    # @see Printer#q
+    def q(*args, &block)
+      PrintDebug::DefaultPrinter.printer.q(*args, &block)
     end
 
-    delegate_to_printer :q
-    delegate_to_printer :ql
+    # @see Printer#ql
+    def ql(*args, &block)
+      PrintDebug::DefaultPrinter.printer.ql(*args, &block)
+    end
 
+    # Debug a call chain by printing self and then returning self.
+    # @return [Object] self
     def tapq
       q self
       self
     end
 
+    # Debug a call chain by printing self, with source position, and
+    # then returning self.
+    # @return [Object] self
     def tapql
       ql self
       self

@@ -4,6 +4,7 @@ require_relative "wraps_sexp"
 module PrintDebug
   class RubyParser
 
+    # @api private
     class MethodCall
 
       include WrapsSexp

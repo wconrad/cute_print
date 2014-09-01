@@ -1,4 +1,6 @@
 module PrintDebug
+
+  # @api private
   module FindsForeignCaller
 
     def nearest_foreign_caller
@@ -13,4 +15,5 @@ module PrintDebug
     end
 
   end
+
 end

@@ -1,7 +1,7 @@
 Feature: Configure position format
 
   You can change the format which Kernel#ql uses to print the source
-  position.  String#sprintf is called on the string you supply, with
+  position.  String#% is called on the string you supply, with
   a hash argument having these keys:
     :path
     :filename
