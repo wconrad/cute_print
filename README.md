@@ -42,7 +42,7 @@ You can have the debug source printed along with the value:
     j = 2
     q {1 + 2}         # prints: 1 + 2 is 3
 
-You can print the source filename and line number:
+Kernel#ql will add the source position:
 
     ql "abc"        # prints: foo.rb:12: "abc"
     ql {1 + 2}      # prints: foo.rb:13: 1 + 2 is 3
@@ -59,22 +59,18 @@ Call chains can be a pain to debug, but it's easy with #tapq:
 
 ## Configuring
 
-To configure the library, call PrintDebug::configure.  Here's how to
-change the output device from $stderr to $stdout:
+Change the output device:
 
     PrintDebug.configure do |c|
-      c.output_device = $stdout
+      c.out = $stdout
     end
 
-This causes #ql and #tapql to print the full path rather than just the
+Causes #ql and #tapql to print the full path rather than just the
 filename:
 
     PrintDebug.configure do |c|
-      c.file_label = :path
+      c.position_format = "%<path>s:%<line_number>d: "
     end
-
-See the rdocs for PrintDebug::Configuration for the complete list of
-configuration options.
 
 ## Rubies supported
 
