@@ -80,8 +80,8 @@ configuration options.
 
 This gem is known to work with these Ruby implementations:
 
-* ruby-1.9
-* ruby 2.1
+* ruby-1.9.3
+* ruby 2.1.2
 
 ## Platforms supported
 
@@ -91,15 +91,15 @@ issue on github.
 
 ## Other gems with similar functions
 
-The [wrong][1] gem includes the excellent #d method, which is very
+The [_wrong_][1] gem includes the excellent #d method, which is very
 much like this gem's #q method.  This gem's ability to read the debug
-statement's source is derived from the wrong gem.
+statement's source is derived from the _wrong_ gem.
 
-Differences between the wrong gem and this gem:
+Differences between the _wrong_ gem and this gem:
 
-* The wrong gem supports color output
-* The wrong gem writes only to stdout
-* The wrong gem supports Ruby 1.8
+* The _wrong_ gem supports color output
+* The _wrong_ gem writes only to stdout
+* The _wrong_ gem supports Ruby 1.8
 
 ## Contributing
 
