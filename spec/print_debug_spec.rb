@@ -10,8 +10,7 @@ require "print_debug"
 describe PrintDebug do
 
   before(:each) do
-    # Private API.  Don't do this at home.
-    PrintDebug::DefaultPrinter.printer.set_defaults
+    PrintDebug::Configure.reset
   end
 
   describe "#q" do

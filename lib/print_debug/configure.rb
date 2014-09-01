@@ -11,6 +11,10 @@ module PrintDebug
       yield self
     end
 
+    def self.reset
+      DefaultPrinter.printer.set_defaults
+    end
+
     def_delegators :@printer,
     :out=
 

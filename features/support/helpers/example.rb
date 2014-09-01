@@ -1,12 +1,15 @@
 require_relative "../../../test_support/captures_stderr.rb"
+require_relative "../../../test_support/captures_stdout.rb"
 
 require_relative "temp_dir"
 
 class Example
 
   include CapturesStderr
+  include CapturesStdout
 
   attr_reader :stderr
+  attr_reader :stdout
 
   def initialize(contents, opts = {})
     @contents = contents
@@ -16,8 +19,10 @@ class Example
   end
 
   def run
-    @stderr = capture_stderr do
-      load path
+    @stdout = capture_stdout do
+      @stderr = capture_stderr do
+        load path
+      end
     end
   end
 
