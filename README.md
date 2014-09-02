@@ -1,14 +1,20 @@
 # cute_print
 
-Write debug output to stderr.  Optionally print the source filename
-and line number, or the source of the debug statement.  Easily print
-debug from the middle of call chains.
+Write debug output to the console, with flair.  Features:
+
+* Inspects its output, like Kernel#p
+* Writes to $stderr by default (good when $stdout is redirected)
+* Can label output with the filename and line number
+* Can label output with the source of the value being printed
+* Can print a value in the middle of a call chain
+* Configurable output device
 
 This is for those who prefer to debug by writing things to the
-console.  Since it writes to stderr, it's more useful than Kernel#p
-when working with a program that is run with stdout redirection.
+console.
 
-Output goes to $stderr by default, but that's configurable.
+## Documentation
+
+See: https://www.relishapp.com/wconrad/cute-print/docs
 
 ## Installation
 
