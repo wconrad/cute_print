@@ -1,0 +1,6 @@
+- inspect_objects:
+  - inspect.feature
+  - label_and_inspect.feature
+  - print_source_location.feature
+- inspect_call_chain.feature
+- configuring:
