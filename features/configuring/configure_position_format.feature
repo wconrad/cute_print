@@ -23,4 +23,8 @@ Feature: Configure position format
 
       ql 123
       """
-    Then stderr should match "^/tmp/.+/example\.rb:7: 123$"
+    Then stderr should be
+    """
+    /tmp/.../example.rb:7: 123
+
+    """

@@ -8,9 +8,6 @@ class Example
   include CapturesStderr
   include CapturesStdout
 
-  attr_reader :stderr
-  attr_reader :stdout
-
   def initialize(contents, opts = {})
     @contents = contents
     @filename = opts.fetch(:filename, "example.rb")
@@ -26,6 +23,14 @@ class Example
     end
   end
 
+  def stderr
+    filter_output(@stderr)
+  end
+
+  def stdout
+    filter_output(@stdout)
+  end
+
   private
 
   def create_file
@@ -36,6 +41,14 @@ class Example
 
   def path
     File.join(@temp_dir.path, @filename)
+  end
+
+  def filter_output(output)
+    redact_tmp_path(output)
+  end
+
+  def redact_tmp_path(output)
+    output.sub(/\/tmp\/.*\//, "/tmp/.../")
   end
 
 end

@@ -21,8 +21,3 @@ end
 Then(/^stdout should be$/) do |expected|
   expect(@example.stdout).to eq expected
 end
-
-Then(/^stderr should match "(.*?)"$/) do |regexp_source|
-  regexp = Regexp.new(regexp_source)
-  expect(@example.stderr).to match regexp
-end
