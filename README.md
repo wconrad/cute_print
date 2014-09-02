@@ -52,7 +52,7 @@ Call chains can be a pain to debug, but it's easy with #tapq:
     ["1", "2"].map(&:to_i).tapq.inject(&:+)
     # prints: [1, 2]
 
-#tapql adds the source filename and line number:
+Kernel#tapql adds the source filename and line number:
 
     ["1", "2"].map(&:to_i).tapql.inject(&:+)
     # prints: bar.rb:12: [1, 2]
@@ -77,7 +77,7 @@ filename:
 This gem is known to work with these Ruby implementations:
 
 * ruby-1.9.3
-* ruby 2.1.2
+* ruby-2.1.2
 
 ## Platforms supported
 
