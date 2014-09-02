@@ -1,4 +1,6 @@
 # cute_print
+[![Build Status](https://travis-ci.org/wconrad/cute_print.png)](https://travis-ci.org/wconrad/cute_print)
+[![Gem Version](https://badge.fury.io/rb/cute_print.png)](http://badge.fury.io/rb/cute_print)
 
 Write debug output to stderr.  Optionally print the source filename
 and line number, or the source of the debug statement.  Easily debug
