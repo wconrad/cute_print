@@ -1,6 +1,6 @@
-Feature: Configure output
+Feature: Reset configuration
 
-  You can reset the configuration to itse defaults.
+  You can reset the configuration to its defaults.
 
   Scenario: Write to $stdout
     Given a file with:
