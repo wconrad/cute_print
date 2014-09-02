@@ -1,6 +1,6 @@
 require_relative "printer"
 
-module PrintDebug
+module CutePrint
 
   # @api private
   class DefaultPrinter

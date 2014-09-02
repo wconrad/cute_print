@@ -12,9 +12,9 @@ Feature: Configure position format
   Scenario: Write full path
     Given a file named "example.rb" with:
       """
-      require "print_debug"
+      require "cute_print"
 
-      PrintDebug.configure do |c|
+      CutePrint.configure do |c|
         c.position_format = "%<path>s:%<line_number>d: "
       end
 

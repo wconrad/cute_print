@@ -2,7 +2,7 @@ require "ruby_parser"
 
 require_relative "ruby_parser/parsed_code"
 
-module PrintDebug
+module CutePrint
 
   # This class is very much cribbed from this excellent code:
   #

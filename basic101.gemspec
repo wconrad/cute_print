@@ -25,8 +25,8 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "Rakefile",
     "VERSION",
-    "lib/print_debug.rb",
-    "spec/print_debug_spec.rb",
+    "lib/cute_print.rb",
+    "spec/cute_print_spec.rb",
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/wconrad/basic101"

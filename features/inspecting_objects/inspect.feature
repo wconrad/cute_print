@@ -6,7 +6,7 @@ Feature: Inspect an object
   Scenario: One argument
     Given a file with:
       """
-      require "print_debug"
+      require "cute_print"
       q "abc"
       """
     Then stderr should be
@@ -18,7 +18,7 @@ Feature: Inspect an object
   Scenario: Two arguments
     Given a file with:
       """
-      require "print_debug"
+      require "cute_print"
       q "abc", 123
       """
     Then stderr should be

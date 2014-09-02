@@ -5,14 +5,14 @@ Feature: Configure output
   Scenario: Write to $stdout
     Given a file with:
       """
-      require "print_debug"
+      require "cute_print"
 
-      PrintDebug.configure do |c|
+      CutePrint.configure do |c|
         c.out = $stdout
       end
 
       q "abc"
-      PrintDebug.configure { |c| c.reset }
+      CutePrint.configure { |c| c.reset }
       q 123
       """
     Then stdout should be

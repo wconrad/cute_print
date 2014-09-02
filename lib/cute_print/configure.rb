@@ -1,6 +1,6 @@
 require "forwardable"
 
-module PrintDebug
+module CutePrint
 
   class Configure
 

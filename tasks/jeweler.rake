@@ -16,8 +16,8 @@ end
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see
   # http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = 'print_debug'
-  gem.homepage = 'http://github.com/wconrad/print_debug'
+  gem.name = 'cute_print'
+  gem.homepage = 'http://github.com/wconrad/cute_print'
   gem.license = 'MIT'
   gem.summary = %Q{print debug to stderr, with flair}
   gem.description = description

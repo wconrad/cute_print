@@ -1,8 +1,8 @@
 require_relative "spec_helper"
 
-require "print_debug/printer"
+require "cute_print/printer"
 
-module PrintDebug
+module CutePrint
 
   describe Printer do
 

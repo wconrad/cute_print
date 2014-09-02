@@ -2,15 +2,15 @@ require_relative "spec_helper"
 
 require "stringio"
 
-require "print_debug"
+require "cute_print"
 
 # Test the library as the user uses it.  The other specs test
 # internals.
 
-describe PrintDebug do
+describe CutePrint do
 
   before(:each) do
-    PrintDebug.configure { |c| c.reset }
+    CutePrint.configure { |c| c.reset }
   end
 
   describe "#q" do
@@ -56,7 +56,7 @@ describe PrintDebug do
   describe 'configure output' do
     Given(:io) { StringIO.new }
     Given do
-      PrintDebug.configure do |c|
+      CutePrint.configure do |c|
         c.out = io
       end
     end

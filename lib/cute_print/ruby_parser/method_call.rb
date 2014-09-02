@@ -1,7 +1,7 @@
 require_relative "block"
 require_relative "wraps_sexp"
 
-module PrintDebug
+module CutePrint
   class RubyParser
 
     # @api private

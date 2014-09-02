@@ -6,7 +6,7 @@ Feature: Label and inspect an object
   Scenario: Label and inspect and object
     Given a file with:
       """
-      require "print_debug"
+      require "cute_print"
       q {1 + 2}
       """
     Then stderr should be

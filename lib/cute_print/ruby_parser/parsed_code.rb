@@ -1,7 +1,7 @@
 require_relative "method_call"
 require_relative "wraps_sexp"
 
-module PrintDebug
+module CutePrint
   class RubyParser
 
     # How this class works is cribbed this excellent code:

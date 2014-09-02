@@ -1,4 +1,4 @@
-module PrintDebug
+module CutePrint
 
   # @api private
   module FindsForeignCaller

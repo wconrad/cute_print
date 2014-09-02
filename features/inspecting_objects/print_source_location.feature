@@ -6,7 +6,7 @@ Feature: Print the source location
   Scenario: Inspect an object
     Given a file named "example.rb" with:
       """
-      require "print_debug"
+      require "cute_print"
       ql "abc"
       """
     Then stderr should be
@@ -18,7 +18,7 @@ Feature: Print the source location
   Scenario: Inspect two objects
     Given a file named "example.rb" with:
       """
-      require "print_debug"
+      require "cute_print"
       ql "abc", 123
       """
     Then stderr should be
@@ -31,7 +31,7 @@ Feature: Print the source location
   Scenario: Label and inspect and object
     Given a file named "example.rb" with:
       """
-      require "print_debug"
+      require "cute_print"
       ql {1 + 2}
       """
     Then stderr should be

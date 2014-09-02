@@ -2,7 +2,7 @@ require_relative "finds_foreign_caller"
 require_relative "ruby_parser"
 require_relative "stderr_out"
 
-module PrintDebug
+module CutePrint
   class Printer
 
     include FindsForeignCaller
@@ -28,7 +28,7 @@ module PrintDebug
     # Create an instance.  If attributes are supplied, they override
     # the defaults.  For example:
     #
-    #     PrintDebug.new(:out => $stdout)
+    #     CutePrint.new(:out => $stdout)
     #
     # @api private
     def initialize(attrs = {})

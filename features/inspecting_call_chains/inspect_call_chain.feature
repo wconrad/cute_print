@@ -7,7 +7,7 @@ Feature: Inspect a call chain
   Scenario: Without source position
     Given a file with:
       """
-      require "print_debug"
+      require "cute_print"
       puts ["1", "2"].map(&:to_i).tapq.inject(:+)
       """
     Then stdout should be
@@ -24,7 +24,7 @@ Feature: Inspect a call chain
   Scenario: With source position
     Given a file named "example.rb" with:
       """
-      require "print_debug"
+      require "cute_print"
       puts ["1", "2"].map(&:to_i).tapql.inject(:+)
       """
     Then stdout should be

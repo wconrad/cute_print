@@ -1,4 +1,4 @@
-# print_debug
+# cute_print
 
 Write debug output to stderr.  Optionally print the source filename
 and line number, or the source of the debug statement.  Easily print
@@ -14,7 +14,7 @@ Output goes to $stderr by default, but that's configurable.
 
 Add this line to your application's Gemfile:
 
-    gem "print_debug"
+    gem "cute_print"
 
 And then execute:
 
@@ -22,13 +22,13 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install print_debug
+    $ gem install cute_print
 
 ## Usage
 
 Start with:
 
-    require "print_debug"
+    require "cute_print"
 
 You can use q just like you use Kernel#p.  It will work the same,
 except that its output goes to $stderr instead of $stdout:
@@ -61,14 +61,14 @@ Call chains can be a pain to debug, but it's easy with #tapq:
 
 Change the output device:
 
-    PrintDebug.configure do |c|
+    CutePrint.configure do |c|
       c.out = $stdout
     end
 
 Causes #ql and #tapql to print the full path rather than just the
 filename:
 
-    PrintDebug.configure do |c|
+    CutePrint.configure do |c|
       c.position_format = "%<path>s:%<line_number>d: "
     end
 
@@ -99,7 +99,7 @@ Differences between the _wrong_ gem and this gem:
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/print_debug/fork )
+1. Fork it ( http://github.com/<my-github-username>/cute_print/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

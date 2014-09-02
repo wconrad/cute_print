@@ -1,7 +1,7 @@
-require_relative "../../lib/print_debug"
+require_relative "../../lib/cute_print"
 
 Before do
-  PrintDebug.configure { |c| c.reset }
+  CutePrint.configure { |c| c.reset }
 end
 
 Given(/^a file with:$/) do |contents|

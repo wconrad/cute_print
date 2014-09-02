@@ -1,6 +1,6 @@
 require_relative "../ruby_generator"
 
-module PrintDebug
+module CutePrint
   class RubyParser
 
     # @api private

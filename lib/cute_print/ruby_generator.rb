@@ -2,7 +2,7 @@ require "ruby2ruby"
 
 require_relative "ruby_generator"
 
-module PrintDebug
+module CutePrint
 
   # @api private
   class RubyGenerator

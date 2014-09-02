@@ -1,20 +1,20 @@
-require_relative "print_debug/configure"
-require_relative "print_debug/core_ext"
-require_relative "print_debug/default_printer"
+require_relative "cute_print/configure"
+require_relative "cute_print/core_ext"
+require_relative "cute_print/default_printer"
 
 # Like Kernel#p, only fancier.  For example, this code:
 #
-#     require 'print_debug'
+#     require 'cute_print'
 #     q { 1 + 2 }
 #
 # prints this to $stderr:
 #
 #     (1 + 2) is 3
-module PrintDebug
+module CutePrint
 
   # Configure the library.  For example:
   #
-  #     PrintDebug.configure do |c|
+  #     CutePrint.configure do |c|
   #       c.out = $stdout
   #     end
   #
