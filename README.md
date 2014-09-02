@@ -69,8 +69,9 @@ Kernel#tapql:
 
 This gem is known to work with these Rubies:
 
-* ruby-1.9.3
-* ruby-2.1.2
+* ruby-1.9.3-p547
+* ruby-2.0.0-p481
+* ruby-2.1.2p95
 
 ## Platforms supported
 
