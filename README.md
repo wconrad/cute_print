@@ -1,6 +1,10 @@
 # cute_print
 
-Write debug output to the console, with flair.  Features:
+Write debug output to stderr.  Optionally print the source filename
+and line number, or the source of the debug statement.  Easily debug
+the middle of a call chain.
+
+## Features
 
 * Inspects its output, like Kernel#p.
 * Writes to $stderr by default (good when $stdout is redirected).
