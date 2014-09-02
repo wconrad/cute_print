@@ -4,17 +4,13 @@ Write debug output to the console, with flair.  Features:
 
 * Inspects its output, like Kernel#p
 * Writes to $stderr by default (good when $stdout is redirected)
-* Can label output with the filename and line number
-* Can label output with the source of the value being printed
+* Can print the filename and line number
+* Can print the source of the value
 * Can print a value in the middle of a call chain
 * Configurable output device
 
 This is for those who prefer to debug by writing things to the
 console.
-
-## Documentation
-
-See: https://www.relishapp.com/wconrad/cute-print/docs
 
 ## Installation
 
@@ -39,48 +35,35 @@ Start with:
 You can use q just like you use Kernel#p.  It will work the same,
 except that its output goes to $stderr instead of $stdout:
 
-    q "abc"            # prints: "abc"
-    q [1, 2, 3 + 4]    # prints: [1, 2, 7]
+    q "abc"            # "abc"
+    q [1, 2, 3 + 4]    # [1, 2, 7]
 
 You can have the debug source printed along with the value:
 
     i = 1
-    j = 2
-    q {1 + 2}         # prints: 1 + 2 is 3
+    q {i + 2}         # i + 2 is 3
 
 Kernel#ql will add the source position:
 
-    ql "abc"        # prints: foo.rb:12: "abc"
-    ql {1 + 2}      # prints: foo.rb:13: 1 + 2 is 3
+    ql "abc"        # foo.rb:12: "abc"
+    ql {1 + 2}      # foo.rb:13: 1 + 2 is 3
 
-Call chains can be a pain to debug, but it's easy with #tapq:
+Call chains can be a pain to debug, but it's easy with Kernel#tapq and
+Kernel#tapql:
 
     ["1", "2"].map(&:to_i).tapq.inject(&:+)
-    # prints: [1, 2]
-
-Kernel#tapql adds the source filename and line number:
+    # [1, 2]
 
     ["1", "2"].map(&:to_i).tapql.inject(&:+)
     # prints: bar.rb:12: [1, 2]
 
-## Configuring
+## Documentation
 
-Change the output device:
-
-    CutePrint.configure do |c|
-      c.out = $stdout
-    end
-
-Causes #ql and #tapql to print the full path rather than just the
-filename:
-
-    CutePrint.configure do |c|
-      c.position_format = "%<path>s:%<line_number>d: "
-    end
+[Full documentation (relishapp)][2]
 
 ## Rubies supported
 
-This gem is known to work with these Ruby implementations:
+This gem is known to work with these Rubies:
 
 * ruby-1.9.3
 * ruby-2.1.2
@@ -103,6 +86,16 @@ Differences between the _wrong_ gem and this gem:
 * The _wrong_ gem writes only to stdout
 * The _wrong_ gem supports Ruby 1.8
 
+## Versioning
+
+This gem uses [semantic versioning 2.0][3].
+
+While the version is < 1.0.0, the API can change with any version
+increment.  If you need stability, lock the gem down to a minor
+version, e.g.:
+
+    gem "cute_print", "~> 0.1.0"
+
 ## Contributing
 
 1. Fork it ( http://github.com/wconrad/cute_print/fork )
@@ -112,3 +105,5 @@ Differences between the _wrong_ gem and this gem:
 5. Create new Pull Request
 
 [1]: http://rubygems.org/gems/wrong
+[2]: https://www.relishapp.com/wconrad/cute-print/docs
+[3]: http://semver.org/spec/v2.0.0.html
