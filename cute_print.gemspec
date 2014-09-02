@@ -11,23 +11,67 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
   s.authors = ["Wayne Conrad"]
-  s.date = "2014-08-29"
-  s.description = "Write debug output to stderr.  Optionally print the source filename and line number, or the source of the debug statement.  Easily print debug from the middle of call chains.  This is for those who prefer to debug by writing things to the console.  Since it writes to stderr, it's more useful than Kernel#p when working with a program that is run with stdout redirection.  Output goes to $stderr by default, but that's configurable."
+  s.date = "2014-09-02"
+  s.description = "Write debug output to the console, with flair.  Features:  * Inspects its output, like Kernel#p * Writes to $stderr by default (good when $stdout is redirected) * Can print the filename and line number * Can print the source of the value * Can print a value in the middle of a call chain * Configurable output device  This is for those who prefer to debug by writing things to the console."
   s.email = "wconrad@yagni.com"
   s.extra_rdoc_files = [
-    "LICENSE.txt",
+    "LICENSE",
     "README.md"
   ]
   s.files = [
-    ".document",
+    ".config/cucumber.yml",
     ".rspec",
+    ".yardopts",
     "Gemfile",
-    "LICENSE.txt",
+    "Gemfile.lock",
+    "LICENSE",
+    "README.md",
     "Rakefile",
     "VERSION",
+    "basic101.gemspec",
+    "cute_print.gemspec",
+    "features/.nav",
+    "features/configuring/configure_output.feature",
+    "features/configuring/configure_position_format.feature",
+    "features/configuring/readme.md",
+    "features/configuring/reset_configuration.feature",
+    "features/inspect_call_chain.feature",
+    "features/inspect_objects/inspect.feature",
+    "features/inspect_objects/label_and_inspect.feature",
+    "features/inspect_objects/print_source_location.feature",
+    "features/inspect_objects/readme.md",
+    "features/readme.md",
+    "features/support/env.rb",
+    "features/support/helpers/example.rb",
+    "features/support/helpers/temp_dir.rb",
+    "features/support/step_definitions.rb",
     "lib/cute_print.rb",
+    "lib/cute_print/configure.rb",
+    "lib/cute_print/core_ext.rb",
+    "lib/cute_print/core_ext/object.rb",
+    "lib/cute_print/default_printer.rb",
+    "lib/cute_print/finds_foreign_caller.rb",
+    "lib/cute_print/mixin.rb",
+    "lib/cute_print/printer.rb",
+    "lib/cute_print/ruby_generator.rb",
+    "lib/cute_print/ruby_parser.rb",
+    "lib/cute_print/ruby_parser/block.rb",
+    "lib/cute_print/ruby_parser/method_call.rb",
+    "lib/cute_print/ruby_parser/parsed_code.rb",
+    "lib/cute_print/ruby_parser/wraps_sexp.rb",
+    "lib/cute_print/stderr_out.rb",
     "spec/cute_print_spec.rb",
-    "spec/spec_helper.rb"
+    "spec/printer_spec.rb",
+    "spec/spec_helper.rb",
+    "spec/support/captures_stderr.rb",
+    "tasks/cucumber.rake",
+    "tasks/default.rake",
+    "tasks/jeweler.rake",
+    "tasks/spec.rake",
+    "tasks/test.rake",
+    "tasks/yard.rake",
+    "test_support/captures_stderr.rb",
+    "test_support/captures_stdout.rb"
   ]
   s.homepage = "http://github.com/wconrad/cute_print"
   s.licenses = ["MIT"]
@@ -38,27 +82,15 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<bundler>, ["~> 1.7"])
-      s.add_development_dependency(%q<jeweler>, ["~> 2.0"])
-      s.add_development_dependency(%q<rake>, ["~> 10.3"])
-      s.add_development_dependency(%q<redcarpet>, ["~> 3.1"])
-      s.add_development_dependency(%q<rspec>, ["~> 3.0"])
-      s.add_development_dependency(%q<yard>, ["~> 0.8.7"])
+      s.add_runtime_dependency(%q<ruby_parser>, ["~> 3.6"])
+      s.add_runtime_dependency(%q<ruby2ruby>, ["~> 2.1"])
     else
-      s.add_dependency(%q<bundler>, ["~> 1.7"])
-      s.add_dependency(%q<jeweler>, ["~> 2.0"])
-      s.add_dependency(%q<rake>, ["~> 10.3"])
-      s.add_dependency(%q<redcarpet>, ["~> 3.1"])
-      s.add_dependency(%q<rspec>, ["~> 3.0"])
-      s.add_dependency(%q<yard>, ["~> 0.8.7"])
+      s.add_dependency(%q<ruby_parser>, ["~> 3.6"])
+      s.add_dependency(%q<ruby2ruby>, ["~> 2.1"])
     end
   else
-    s.add_dependency(%q<bundler>, ["~> 1.7"])
-    s.add_dependency(%q<jeweler>, ["~> 2.0"])
-    s.add_dependency(%q<rake>, ["~> 10.3"])
-    s.add_dependency(%q<redcarpet>, ["~> 3.1"])
-    s.add_dependency(%q<rspec>, ["~> 3.0"])
-    s.add_dependency(%q<yard>, ["~> 0.8.7"])
+    s.add_dependency(%q<ruby_parser>, ["~> 3.6"])
+    s.add_dependency(%q<ruby2ruby>, ["~> 2.1"])
   end
 end
 
