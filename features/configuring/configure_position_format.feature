@@ -3,11 +3,14 @@ Feature: Configure position format
   You can change the format which Kernel#ql uses to print the source
   position.  String#% is called on the string you supply, with
   a hash argument having these keys:
-    :path
-    :filename
-    :line_number
+
+  * :path
+  * :filename
+  * :line_number
+
   The default position format is:
-    "%<filename>s:%<line_number>d: "
+
+      "%<filename>s:%<line_number>d: "
 
   Scenario: Write full path
     Given a file named "example.rb" with:
