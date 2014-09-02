@@ -2,12 +2,12 @@
 
 Write debug output to the console, with flair.  Features:
 
-* Inspects its output, like Kernel#p
-* Writes to $stderr by default (good when $stdout is redirected)
-* Can print the filename and line number
-* Can print the source of the value
-* Can print a value in the middle of a call chain
-* Configurable output device
+* Inspects its output, like Kernel#p.
+* Writes to $stderr by default (good when $stdout is redirected).
+* Can print the filename and line number.
+* Can print the source of the value.
+* Can print a value in the middle of a call chain.
+* Configurable output device.
 
 This is for those who prefer to debug by writing things to the
 console.
