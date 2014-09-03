@@ -3,6 +3,8 @@ module CutePrint
   # @api private
   module FindsForeignCaller
 
+    extend self
+
     def nearest_foreign_caller
       caller.find do |s|
         path = s.split(":").first
@@ -11,7 +13,7 @@ module CutePrint
     end
 
     def lib_path
-      File.dirname(__FILE__)
+      File.join(File.dirname(__FILE__), '..')
     end
 
   end

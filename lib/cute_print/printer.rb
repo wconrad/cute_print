@@ -1,4 +1,5 @@
 require_relative "finds_foreign_caller"
+require_relative "location"
 require_relative "ruby_parser"
 require_relative "stderr_out"
 
@@ -63,11 +64,10 @@ module CutePrint
     # If called with a block, prints the source code of the block and
     # the inspected result of the block.
     def ql(*values, &block)
-      path, line_number = nearest_foreign_caller.split(":")
-      line_number = line_number.to_i
+      location = Location.find
       print(__method__, values, block) do |line|
-        position = format_position(path, line_number)
-        @out.puts "#{position}#{line}"
+        location_label = location.format(@position_format)
+        @out.puts "#{location_label}#{line}"
       end
     end
 
@@ -94,15 +94,6 @@ module CutePrint
       parsed_code = ruby_parser.parse
       method_call = parsed_code.first_call_to_method(method)
       method_call.block.to_ruby
-    end
-
-    def format_position(path, line_number)
-      position_values = {
-        path: path,
-        filename: File.basename(path),
-        line_number: line_number,
-      }
-      @position_format % position_values
     end
 
   end
