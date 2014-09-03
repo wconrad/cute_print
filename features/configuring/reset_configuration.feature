@@ -7,10 +7,7 @@ Feature: Reset configuration
       """
       require "cute_print"
 
-      CutePrint.configure do |c|
-        c.out = $stdout
-      end
-
+      CutePrint.configure { |c| c.out = $stdout }
       q "abc"
       CutePrint.configure { |c| c.reset }
       q 123
