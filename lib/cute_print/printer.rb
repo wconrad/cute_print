@@ -78,12 +78,8 @@ module CutePrint
         raise ArgumentError, "arguments and block are mutually exclusive"
       end
       if block
-        ruby_parser = RubyParser.from_block(block)
-        parsed_code = ruby_parser.parse
-        method_call = parsed_code.first_call_to_method(method)
-        block_code = method_call.block.to_ruby
         yield "%s is %s" % [
-          block_code,
+          block_code(method, block),
           block.call.inspect,
         ]
       else
@@ -91,6 +87,13 @@ module CutePrint
           yield value.inspect
         end
       end
+    end
+
+    def block_code(method, block)
+      ruby_parser = RubyParser.from_block(block)
+      parsed_code = ruby_parser.parse
+      method_call = parsed_code.first_call_to_method(method)
+      method_call.block.to_ruby
     end
 
     def format_position(path, line_number)
