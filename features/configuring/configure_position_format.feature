@@ -25,6 +25,7 @@ Feature: Configure position format
       """
     Then stderr should be
     """
-    /tmp/.../example.rb:7: 123
+    /tmp/.../example.rb:7:
+      123
 
     """

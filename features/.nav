@@ -1,10 +1,10 @@
-- inspect_objects:
+- inspect:
   - inspect.feature
-  - label_and_inspect.feature
-  - print_source_location.feature
-- pretty_print_objects:
+  - inspect_with_source.feature
+  - inspect_with_location.feature
+- pretty_print:
   - pretty_print.feature
-  - label_and_pretty_print.feature
-  - print_source_location.feature
-- inspect_call_chain.feature
+  - pretty_print_with_source.feature
+  - pretty_print_with_location.feature
+- call_chain.feature
 - configuring:

@@ -1,4 +1,4 @@
-Feature: Pretty-print an object
+Feature: Pretty-print
 
   Kernel#qq pretty-prints its arguments and prints them, one per line.  This
   is just like Kernel#pp from the pp library, except that it writes to $stderr

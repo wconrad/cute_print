@@ -1,4 +1,4 @@
-Feature: Inspect an object
+Feature: Inspect
 
   Kernel#q inspects its arguments and prints them, one per line.  This
   is just like Kernel#p, except that it writes to $stderr by default.

@@ -1,4 +1,4 @@
-Feature: Pretty-print an object
+Feature: Pretty-print with source
 
   Kernel#pp, if given a block, prints the source for the block and then
   the pretty-printed result of running the block.

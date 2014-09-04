@@ -1,4 +1,4 @@
-Feature: Print the source location
+Feature: Inspect with source location
 
   Kernel#ql works just like Kernel#pp from the built-in pp library,
   except that it writes to $stderr, _and_ it prints the source

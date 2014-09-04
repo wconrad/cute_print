@@ -1,4 +1,4 @@
-Feature: Label and inspect an object
+Feature: Inspect with source
 
   Kernel#q, if given a block, prints the source for the block and then
   the inspected result of running the block.
