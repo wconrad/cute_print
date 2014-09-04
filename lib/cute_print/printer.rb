@@ -53,6 +53,7 @@ module CutePrint
       formatter = Formatter.new(method: __method__, out: @out)
       formatter.block = block
       formatter.values = values
+      formatter.inspector = :inspect
       formatter.write
     end
 
@@ -68,6 +69,39 @@ module CutePrint
       formatter = Formatter.new(method: __method__, out: @out)
       formatter.block = block
       formatter.values = values
+      formatter.inspector = :inspect
+      formatter.location = Location.find
+      formatter.location_format = @position_format
+      formatter.write
+    end
+
+    # Pretty-print and write one or more objects.
+    #
+    # If called without a block, pretty-prints the pretty-printed
+    # arguments, one on a line.
+    #
+    # If called with a block, prints the source code of the block and
+    # pretty-prints the result of the block.
+    def qq(*values, &block)
+      formatter = Formatter.new(method: __method__, out: @out)
+      formatter.block = block
+      formatter.values = values
+      formatter.inspector = :pretty_print
+      formatter.write
+    end
+
+    # Pretty-print and write one or more objects, with source position.
+    #
+    # If called without a block, pretty-prints the pretty-printed
+    # arguments, one on a line.
+    #
+    # If called with a block, prints the source code of the block and
+    # pretty-prints the result of the block.
+    def qql(*values, &block)
+      formatter = Formatter.new(method: __method__, out: @out)
+      formatter.block = block
+      formatter.values = values
+      formatter.inspector = :pretty_print
       formatter.location = Location.find
       formatter.location_format = @position_format
       formatter.write

@@ -7,7 +7,6 @@ module CutePrint
   #
   # @note The methods in this module are part of the public API, but
   #   the module itself is not.
-
   module Mixin
 
     # @see Printer#q
@@ -23,6 +22,11 @@ module CutePrint
     # @see Printer#qq
     def qq(*args, &block)
       CutePrint::DefaultPrinter.printer.qq(*args, &block)
+    end
+
+    # @see Printer#qql
+    def qql(*args, &block)
+      CutePrint::DefaultPrinter.printer.qql(*args, &block)
     end
 
     # Debug a call chain by printing self and then returning self.

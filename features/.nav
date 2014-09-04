@@ -2,5 +2,9 @@
   - inspect.feature
   - label_and_inspect.feature
   - print_source_location.feature
+- pretty_print_objects:
+  - pretty_print.feature
+  - label_and_pretty_print.feature
+  - print_source_location.feature
 - inspect_call_chain.feature
 - configuring:

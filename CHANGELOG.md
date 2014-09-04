@@ -1,5 +1,10 @@
 ### Development
 
+Enhancements:
+
+* Added Kernel#qq (pretty-print)
+* Added Kernel#qql (pretty-print with source location)
+
 Misc:
 
 * Minor tweaks to README and comments

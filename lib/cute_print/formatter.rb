@@ -1,3 +1,6 @@
+require "pp"
+require "stringio"
+
 require_relative "ruby_parser"
 
 module CutePrint
@@ -8,8 +11,10 @@ module CutePrint
     attr_accessor :location
     attr_accessor :location_format
     attr_accessor :values
+    attr_accessor :inspector
 
     def initialize(opts = {})
+      @inspector = :inspect
       @method = opts.fetch(:method)
       @out = opts.fetch(:out)
     end
@@ -21,14 +26,41 @@ module CutePrint
       unless @block || @values
         raise ArgumentError, "either arguments or block must be given"
       end
-      lines = values.map(&:inspect)
-      lines.map! do |value|
-        label + value
+      inspected_values = values.map do |value|
+        inspector.call(value)
       end
-      write_lines lines
+      labeled_values = inspected_values.map do |lines|
+        lines.map.with_index do |line, i|
+          if i == 0
+            label + line
+          else
+            indent + line
+          end
+        end
+      end
+      labeled_values.each do |lines|
+        write_lines lines
+      end
     end
 
     private
+
+    def inspector
+      case @inspector
+      when :inspect
+        ->(value) do
+          [value.inspect]
+        end
+      when :pretty_print
+        ->(value) do
+          out = StringIO.new
+          PP.pp(value, out)
+          out.string.lines
+        end
+      else
+        raise ArgumentError, "Unknown inspector name: #{@inspector.inspect}"
+      end
+    end
 
     def values
       unless @values.empty?
@@ -46,6 +78,10 @@ module CutePrint
 
     def label
       @label ||= make_label
+    end
+
+    def indent
+      " " * label.size
     end
 
     def make_label

@@ -53,6 +53,31 @@ describe CutePrint do
     Then { @stderr == "#{@location}: [1, 2]\n" }
   end
 
+  describe "#qq" do
+    Given(:object) do
+      [
+        "Once upon a time there were four little Rabbits, and their names were",
+        "Flopsy,",
+        "Mopsy,",
+        "Cotton-tail, and",
+        "Peter.",
+      ]
+    end
+    Given(:expected_output) do
+      %Q'["Once upon a time there were four little Rabbits, and their names were",\n' +
+        %Q' "Flopsy,",\n' +
+        %Q' "Mopsy,",\n' +
+        %Q' "Cotton-tail, and",\n' +
+        %Q' "Peter."]\n'
+    end
+    When do
+      @stderr = capture_stderr do
+        qq object
+      end
+    end
+    Then { @stderr == expected_output }
+  end
+
   describe 'configure output' do
     Given(:io) { StringIO.new }
     Given do

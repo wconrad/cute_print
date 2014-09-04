@@ -50,7 +50,7 @@ You can have the debug source printed along with the value:
     i = 1
     q {i + 2}         # i + 2 is 3
 
-Kernel#ql will add the source position:
+Kernel#ql will add the source location:
 
     ql "abc"        # foo.rb:12: "abc"
     ql {1 + 2}      # foo.rb:13: 1 + 2 is 3
@@ -66,7 +66,7 @@ Kernel#tapql:
 
 ## Documentation
 
-[Full documentation (relishapp)][2]
+There's more.  Please see the [Full documentation][2] (relishapp).
 
 ## Rubies supported
 
