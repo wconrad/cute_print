@@ -1,6 +1,5 @@
-require_relative "finds_foreign_caller"
+require_relative "formatter"
 require_relative "location"
-require_relative "ruby_parser"
 require_relative "stderr_out"
 
 module CutePrint
@@ -51,9 +50,10 @@ module CutePrint
     # If called with a block, prints the source code of the block and
     # the inspected result of the block.
     def q(*values, &block)
-      print(__method__, values, block) do |line|
-        @out.puts line
-      end
+      formatter = Formatter.new(method: __method__, out: @out)
+      formatter.block = block
+      formatter.values = values
+      formatter.write
     end
 
     # Inspect and write one or more objects, with source position.
@@ -65,36 +65,15 @@ module CutePrint
     # the inspected result of the block.
     def ql(*values, &block)
       location = Location.find
-      print(__method__, values, block) do |line|
-        location_label = location.format(@position_format)
-        @out.puts "#{location_label}#{line}"
-      end
+      formatter = Formatter.new(method: __method__, out: @out)
+      formatter.block = block
+      formatter.values = values
+      formatter.location = Location.find
+      formatter.location_format = @position_format
+      formatter.write
     end
 
     private
-
-    def print(method, values, block)
-      if block && !values.empty?
-        raise ArgumentError, "arguments and block are mutually exclusive"
-      end
-      if block
-        yield "%s is %s" % [
-          block_code(method, block),
-          block.call.inspect,
-        ]
-      else
-        values.each do |value|
-          yield value.inspect
-        end
-      end
-    end
-
-    def block_code(method, block)
-      ruby_parser = RubyParser.from_block(block)
-      parsed_code = ruby_parser.parse
-      method_call = parsed_code.first_call_to_method(method)
-      method_call.block.to_ruby
-    end
 
   end
 end
