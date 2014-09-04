@@ -1,5 +1,4 @@
 require_relative "formatter"
-require_relative "location"
 require_relative "stderr_out"
 
 module CutePrint
@@ -50,10 +49,13 @@ module CutePrint
     # If called with a block, prints the source code of the block and
     # the inspected result of the block.
     def q(*values, &block)
-      formatter = Formatter.new(method: __method__, out: @out)
-      formatter.block = block
-      formatter.values = values
-      formatter.inspector = :inspect
+      formatter = Formatter.new(
+        method: __method__,
+        out: @out,
+        block: block,
+        values: values
+      )
+      formatter.inspect
       formatter.write
     end
 
@@ -65,13 +67,13 @@ module CutePrint
     # If called with a block, prints the source code of the block and
     # the inspected result of the block.
     def ql(*values, &block)
-      location = Location.find
-      formatter = Formatter.new(method: __method__, out: @out)
-      formatter.block = block
-      formatter.values = values
-      formatter.inspector = :inspect
-      formatter.location = Location.find
-      formatter.location_format = @position_format
+      formatter = Formatter.new(
+        method: __method__,
+        out: @out,
+        block: block,
+        values: values)
+      formatter.inspect
+      formatter.with_location @position_format
       formatter.write
     end
 
@@ -83,10 +85,12 @@ module CutePrint
     # If called with a block, prints the source code of the block and
     # pretty-prints the result of the block.
     def qq(*values, &block)
-      formatter = Formatter.new(method: __method__, out: @out)
-      formatter.block = block
-      formatter.values = values
-      formatter.inspector = :pretty_print
+      formatter = Formatter.new(
+        method: __method__,
+        out: @out,
+        block: block,
+        values: values)
+      formatter.pretty_print
       formatter.write
     end
 
@@ -98,12 +102,13 @@ module CutePrint
     # If called with a block, prints the source code of the block and
     # pretty-prints the result of the block.
     def qql(*values, &block)
-      formatter = Formatter.new(method: __method__, out: @out)
-      formatter.block = block
-      formatter.values = values
-      formatter.inspector = :pretty_print
-      formatter.location = Location.find
-      formatter.location_format = @position_format
+      formatter = Formatter.new(
+        method: __method__,
+        out: @out,
+        block: block,
+        values: values)
+      formatter.pretty_print
+      formatter.with_location @position_format
       formatter.write
     end
 

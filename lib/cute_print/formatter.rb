@@ -1,33 +1,30 @@
 require "pp"
 require "stringio"
 
+require_relative "location"
 require_relative "ruby_parser"
 
 module CutePrint
   # @api private
   class Formatter
 
-    attr_accessor :block
-    attr_accessor :location
-    attr_accessor :location_format
-    attr_accessor :values
-    attr_accessor :inspector
-
     def initialize(opts = {})
       @inspector = :inspect
       @method = opts.fetch(:method)
       @out = opts.fetch(:out)
-    end
-
-    def write
+      @block = opts.fetch(:block, nil)
+      @values = opts.fetch(:values, [])
       if @block && !@values.empty?
         raise ArgumentError, "arguments and block are mutually exclusive"
       end
-      unless @block || @values
+      if !@block && @values.empty?
         raise ArgumentError, "either arguments or block must be given"
       end
+    end
+
+    def write
       inspected_values = values.map do |value|
-        inspector.call(value)
+        @inspector.call(value)
       end
       labeled_values = inspected_values.map do |lines|
         lines.map.with_index do |line, i|
@@ -43,30 +40,32 @@ module CutePrint
       end
     end
 
-    private
+    def with_location(location_format)
+      @location_format = location_format
+      @location = Location.find
+    end
 
-    def inspector
-      case @inspector
-      when :inspect
-        ->(value) do
-          [value.inspect]
-        end
-      when :pretty_print
-        ->(value) do
-          out = StringIO.new
-          PP.pp(value, out)
-          out.string.lines
-        end
-      else
-        raise ArgumentError, "Unknown inspector name: #{@inspector.inspect}"
+    def inspect
+      @inspector = ->(value) do
+        [value.inspect]
       end
     end
+
+    def pretty_print
+      @inspector = ->(value) do
+        out = StringIO.new
+        PP.pp(value, out)
+        out.string.lines
+      end
+    end
+
+    private
 
     def values
       unless @values.empty?
         @values
       else
-        [block.call]
+        [@block.call]
       end
     end
 
