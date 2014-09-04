@@ -1,6 +1,7 @@
 require_relative "ruby_parser"
 
 module CutePrint
+  # @api private
   class Formatter
 
     attr_accessor :block
