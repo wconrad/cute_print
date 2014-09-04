@@ -2,6 +2,7 @@
 [![Gem Version](https://badge.fury.io/rb/cute_print.png)](http://badge.fury.io/rb/cute_print)
 [![Dependency Status](https://gemnasium.com/wconrad/cute_print.svg)](https://gemnasium.com/wconrad/cute_print)
 [![Build Status](https://travis-ci.org/wconrad/cute_print.png)](https://travis-ci.org/wconrad/cute_print)
+[![Code Climate](https://codeclimate.com/github/wconrad/cute_print.png)](https://codeclimate.com/github/wconrad/cute_print)
 
 Write debug output to stderr.  Optionally print the source filename
 and line number, or the source of the debug statement.  Easily debug
