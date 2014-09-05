@@ -69,8 +69,10 @@ module CutePrint
       end
     end
 
-    def with_location(location_format)
-      @location_format = location_format
+    def with_location(format_key)
+      @location_format = LOCATION_FORMATS.fetch(format_key) {
+        raise ArgumentError, "Unknown location format: #{format_key.inspect}"
+      }
       @location = Location.find
     end
 
@@ -89,6 +91,12 @@ module CutePrint
     end
 
     private
+
+    LOCATION_FORMATS = {
+      filename: "%<filename>s:%<line_number>d: ",
+      path: "%<path>s:%<line_number>d: ",
+    }
+    private_constant :LOCATION_FORMATS
 
     def value_width
       @width - label_width

@@ -6,23 +6,18 @@ module CutePrint
 
     include FindsForeignCaller
 
-    DEFAULT_POSITION_FORMAT = "%<filename>s:%<line_number>d: "
-
     # The object to write to.  Defaults to $stderr.
     # @return [#puts]
     attr_accessor :out
 
-    # The position format.  To format a position, String#% is called
-    # with a hash having these keys:
+    # The location format.
     #
-    # * :path
+    # One of:
     # * :filename
-    # * :line_number
+    # * :path
     #
-    # The default format prints the filename and line number.
-    # @see Printer::DEFAULT_POSITION_FORMAT
     # @return [String]
-    attr_accessor :position_format
+    attr_accessor :location_format
 
     # Create an instance.  If attributes are supplied, they override
     # the defaults.  For example:
@@ -38,7 +33,7 @@ module CutePrint
     # Set all attributes to their defaults.
     def set_defaults
       @out = StderrOut.new
-      @position_format = DEFAULT_POSITION_FORMAT
+      @location_format = :filename
     end
 
     # Inspect and write one or more objects.
@@ -59,7 +54,7 @@ module CutePrint
       formatter.write
     end
 
-    # Inspect and write one or more objects, with source position.
+    # Inspect and write one or more objects, with source location.
     #
     # If called without a block, prints the inspected arguments, one
     # on a line.
@@ -73,7 +68,7 @@ module CutePrint
         block: block,
         values: values)
       formatter.inspect
-      formatter.with_location @position_format
+      formatter.with_location @location_format
       formatter.write
     end
 
@@ -94,7 +89,7 @@ module CutePrint
       formatter.write
     end
 
-    # Pretty-print and write one or more objects, with source position.
+    # Pretty-print and write one or more objects, with source location.
     #
     # If called without a block, pretty-prints the pretty-printed
     # arguments, one on a line.
@@ -108,7 +103,7 @@ module CutePrint
         block: block,
         values: values)
       formatter.pretty_print
-      formatter.with_location @position_format
+      formatter.with_location @location_format
       formatter.write
     end
 

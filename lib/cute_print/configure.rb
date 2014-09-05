@@ -22,10 +22,10 @@ module CutePrint
       def_delegator :@printer, "#{name}="
     end
 
-    # @!attribute [rw] position_format
-    #   @return [String] The position format
-    #   @see Printer#position_format
-    delegate_accessor :position_format
+    # @!attribute [rw] location_format
+    #   @return [String] The location format
+    #   @see Printer#location_format
+    delegate_accessor :location_format
 
     # @!attribute [rw] out
     #   @return [#puts] The file to write to
