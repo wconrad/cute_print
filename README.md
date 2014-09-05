@@ -95,9 +95,15 @@ statement's source is derived from the _wrong_ gem.
 
 Differences between the _wrong_ gem and this gem:
 
+* This gem can print the source location
+* This gem writes to $stderr
+* This gem's output is configurable
+* This gem requires Ruby >= 1.9
+
 * The _wrong_ gem supports color output
-* The _wrong_ gem writes only to stdout
+* The _wrong_ gem writes to stdout
 * The _wrong_ gem supports Ruby 1.8
+* The _wrong_ gem has assertions and more
 
 ## Versioning
 
