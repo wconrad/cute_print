@@ -99,7 +99,6 @@ Differences between the _wrong_ gem and this gem:
 * This gem writes to $stderr
 * This gem's output is configurable
 * This gem requires Ruby >= 1.9
-
 * The _wrong_ gem supports color output
 * The _wrong_ gem writes to stdout
 * The _wrong_ gem supports Ruby 1.8
