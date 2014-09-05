@@ -29,7 +29,7 @@ Feature: Inspect with source location
 
       """
 
-  Scenario: Label and inspect and object
+  Scenario: Inspect with location
     Given a file named "example.rb" with:
       """
       require "cute_print"
@@ -38,5 +38,17 @@ Feature: Inspect with source location
     Then stderr should be
       """
       example.rb:2: (1 + 2) is 3
+
+      """
+
+  Scenario: Just print the location
+    Given a file named "example.rb" with:
+      """
+      require "cute_print"
+      ql
+      """
+    Then stderr should be
+      """
+      example.rb:2
 
       """

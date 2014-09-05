@@ -2,6 +2,7 @@
 
 Enhancements:
 
+* Kernel#ql with no arguments prints source location
 * Added Kernel#qq (pretty-print)
 * Added Kernel#qql (pretty-print with source location)
 

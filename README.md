@@ -56,6 +56,10 @@ Kernel#ql will add the source location:
     ql "abc"        # foo.rb:12: "abc"
     ql {1 + 2}      # foo.rb:13: 1 + 2 is 3
 
+When called with no arguments, #ql just prints the source location:
+
+    ql              # foo.rb:14
+
 Call chains can be a pain to debug, but it's easy with Kernel#tapq and
 Kernel#tapql:
 

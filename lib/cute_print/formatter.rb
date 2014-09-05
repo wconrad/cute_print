@@ -23,14 +23,15 @@ module CutePrint
       if @block && !@values.empty?
         raise ArgumentError, "arguments and block are mutually exclusive"
       end
-      if !@block && @values.empty?
-        raise ArgumentError, "either arguments or block must be given"
-      end
     end
 
     def write
-      labeled_values.each do |lines|
-        write_lines lines
+      if labeled_values.empty? && !label.empty?
+        write_line label.chomp(": ")
+      else
+        labeled_values.each do |lines|
+          write_lines lines
+        end
       end
     end
 
@@ -94,17 +95,21 @@ module CutePrint
     end
 
     def values
-      unless @values.empty?
-        @values
-      else
+      if @block
         [@block.call]
+      else
+        @values
       end
     end
 
     def write_lines(lines)
       lines.each do |line|
-        @out.puts line
+        write_line line
       end
+    end
+
+    def write_line(line)
+      @out.puts line
     end
 
     def label
