@@ -118,5 +118,5 @@ version, e.g.:
 5. Create new Pull Request
 
 [1]: http://rubygems.org/gems/wrong
-[2]: https://www.relishapp.com/wconrad/cute-print/docs
+[2]: https://www.relishapp.com/wconrad/cute-print/v/0-2-0/docs
 [3]: http://semver.org/spec/v2.0.0.html
