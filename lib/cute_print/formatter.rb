@@ -42,7 +42,6 @@ module CutePrint
 
     def labeled_values
       if label_width > @max_inline_label_width
-        p label
         outline_labeled_values
       else
         inline_labeled_values
