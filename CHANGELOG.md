@@ -1,5 +1,7 @@
 ### Development
 
+### 0.2.0 / 2014-09-05
+
 Breaking changes:
 
 * Configure.position_format removed
