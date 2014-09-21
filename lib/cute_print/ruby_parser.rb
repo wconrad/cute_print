@@ -30,7 +30,11 @@ module CutePrint
     private
 
     def read_source
-      File.read(@path)
+      if @path == '(irb)'
+        IRB.CurrentContext.all_lines
+      else
+        File.read(@path)
+      end
     end
 
     def parser

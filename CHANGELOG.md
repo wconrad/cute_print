@@ -1,5 +1,9 @@
 ### Development
 
+Bug fixes:
+
+* Works in irb (issue #1)
+
 ### 0.2.0 / 2014-09-05
 
 Breaking changes:
