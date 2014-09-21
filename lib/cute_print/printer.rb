@@ -91,8 +91,8 @@ module CutePrint
 
     # Pretty-print and write one or more objects, with source location.
     #
-    # If called without a block, pretty-prints the pretty-printed
-    # arguments, one on a line.
+    # If called without a block, pretty-prints the arguments, one on a
+    # line.
     #
     # If called with a block, prints the source code of the block and
     # pretty-prints the result of the block.
