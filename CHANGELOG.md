@@ -1,4 +1,4 @@
-### Development
+### 0.3.0 / 2014-09-27
 
 Breaking changes:
 
