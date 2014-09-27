@@ -117,7 +117,8 @@ module CutePrint
     end
 
     def write_line(line)
-      @out.puts line
+      line += "\n" unless line =~ /\n\Z/
+      @out.print line
     end
 
     def label

@@ -5,9 +5,12 @@ require "pp"
 require "rspec"
 require "rspec-given"
 
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
-
-RSpec.configure do |config|
+globs = [
+  "../test_support",
+  "support",
+].map do |dir|
+  File.join(File.dirname(__FILE__), dir, '**/*.rb')
+end
+Dir[*globs].each do |path|
+  require path
 end

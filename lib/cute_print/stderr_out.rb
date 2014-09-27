@@ -1,14 +1,18 @@
+require 'forwardable'
+
 module CutePrint
 
-  # Writing to an instance of this class, rather than directly to
-  # $stderr, allows the tests to capture output by assigning to
-  # $stderr.
+  # Writing to an instance of this class, rather than to an instance
+  # variable that was set to $stderr, allows the tests to capture
+  # output by assigning to $stderr.
   # @api private
   class StderrOut
 
-    def puts(*args)
-      $stderr.puts(*args)
-    end
+    extend Forwardable
+
+    def_delegators :$stderr,
+    :puts,
+    :print
 
   end
 end

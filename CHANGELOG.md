@@ -3,6 +3,7 @@
 Bug fixes:
 
 * Works in irb (issue #1)
+* Is now thread safe (issue #4)
 
 ### 0.2.0 / 2014-09-05
 
