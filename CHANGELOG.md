@@ -3,7 +3,7 @@
 Breaking changes:
 
 * Configure.out must respond to #print rather than #puts
-# Kernel#q, #qq and #qql return nil
+* Kernel#q, #qq and #qql return nil
 
 Enhancements:
 
