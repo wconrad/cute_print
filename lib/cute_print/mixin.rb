@@ -1,4 +1,3 @@
-require_relative "default_printer"
 require_relative "printer"
 
 module CutePrint
@@ -11,22 +10,22 @@ module CutePrint
 
     # @see Printer#q
     def q(*args, &block)
-      CutePrint::DefaultPrinter.printer.q(*args, &block)
+      CutePrint.printer.q(*args, &block)
     end
 
     # @see Printer#ql
     def ql(*args, &block)
-      CutePrint::DefaultPrinter.printer.ql(*args, &block)
+      CutePrint.printer.ql(*args, &block)
     end
 
     # @see Printer#qq
     def qq(*args, &block)
-      CutePrint::DefaultPrinter.printer.qq(*args, &block)
+      CutePrint.printer.qq(*args, &block)
     end
 
     # @see Printer#qql
     def qql(*args, &block)
-      CutePrint::DefaultPrinter.printer.qql(*args, &block)
+      CutePrint.printer.qql(*args, &block)
     end
 
     # Debug a call chain by printing self and then returning self.

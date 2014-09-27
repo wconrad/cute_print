@@ -1,6 +1,5 @@
 require_relative "cute_print/configure"
 require_relative "cute_print/core_ext"
-require_relative "cute_print/default_printer"
 
 # Like Kernel#p, only fancier.  For example, this code:
 #
@@ -20,7 +19,13 @@ module CutePrint
   #
   # @yieldparam config [Configure]
   def self.configure(&block)
-    Configure.new(DefaultPrinter.printer, &block)
+    Configure.new(printer, &block)
+  end
+
+  # @return [Printer] the singleton printer
+  # @api private
+  def self.printer
+    @printer ||= Printer.new
   end
 
 end
