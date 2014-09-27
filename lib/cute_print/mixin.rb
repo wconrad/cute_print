@@ -36,7 +36,7 @@ module CutePrint
       self
     end
 
-    # Debug a call chain by printing self, with source position, and
+    # Debug a call chain by printing self, with source location, and
     # then returning self.
     # @return [Object] self
     def tapql
@@ -46,13 +46,15 @@ module CutePrint
 
     # Debug a call chain by pretty-printing self and then returning
     # self.
+    # @return [Object] self
     def tapqq
       qq self
       self
     end
 
-    # Debug a call chain by printing the source location,
-    # pretty-printing self, and then returning self.
+    # Debug a call chain by pretty-printing self, with source
+    # location, and then returning self.
+    # @return [Object] self
     def tapqql
       qql self
       self
