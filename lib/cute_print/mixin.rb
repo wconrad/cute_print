@@ -8,24 +8,24 @@ module CutePrint
   #   the module itself is not.
   module Mixin
 
-    # @see Printer#q
+    # @see CutePrint#q
     def q(*args, &block)
-      CutePrint.printer.q(*args, &block)
+      CutePrint.q(*args, &block)
     end
 
-    # @see Printer#ql
+    # @see CutePrint#ql
     def ql(*args, &block)
-      CutePrint.printer.ql(*args, &block)
+      CutePrint.ql(*args, &block)
     end
 
-    # @see Printer#qq
+    # @see CutePrint#qq
     def qq(*args, &block)
-      CutePrint.printer.qq(*args, &block)
+      CutePrint.qq(*args, &block)
     end
 
-    # @see Printer#qql
+    # @see CutePrint#qql
     def qql(*args, &block)
-      CutePrint.printer.qql(*args, &block)
+      CutePrint.qql(*args, &block)
     end
 
     # Debug a call chain by printing self and then returning self.

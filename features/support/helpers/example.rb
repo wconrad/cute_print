@@ -1,12 +1,7 @@
-require_relative "../../../test_support/captures_stderr.rb"
-require_relative "../../../test_support/captures_stdout.rb"
-
+require_relative "example_runner"
 require_relative "temp_dir"
 
 class Example
-
-  include CapturesStderr
-  include CapturesStdout
 
   def initialize(contents, opts = {})
     @contents = contents
@@ -16,19 +11,22 @@ class Example
   end
 
   def run
-    @stdout = capture_stdout do
-      @stderr = capture_stderr do
-        load path
+    ExampleRunner.run(path) do |stdout, stderr, exit_status|
+      @stdout = stdout
+      @stderr = stderr
+      @exit_status = exit_status
+      if @exit_status != 0
+        fail "Failed: #{@stdout}\n#{@stderr}"
       end
     end
   end
 
-  def stderr
-    filter_output(@stderr)
-  end
-
   def stdout
     filter_output(@stdout)
+  end
+
+  def stderr
+    filter_output(@stderr)
   end
 
   private

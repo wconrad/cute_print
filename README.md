@@ -131,6 +131,17 @@ To reset the configuration to its defaults:
       c.reset
     end
 
+## Without modifying Ruby classes
+
+By default, this gem defines many methods on Object, making them
+globally available.  To avoid that require "cute_print/core" and then
+call one of the CutePrint class methods:
+
+    require "cute_print/core"
+    CutePrint.q {1 + 2}        # 1 + 2 is 3
+
+The "tap" methods are not available when using CutePrint this way.
+
 ## Rubies supported
 
 This gem is known to work with these Rubies:

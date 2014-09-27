@@ -1,3 +1,9 @@
+### Development
+
+Enhancements
+
+* Can be used without patching any core Ruby classes
+
 ### 0.3.0 / 2014-09-27
 
 Breaking changes:
