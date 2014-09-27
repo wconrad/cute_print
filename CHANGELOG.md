@@ -1,5 +1,9 @@
 ### Development
 
+Breaking changes:
+
+* Configure.out must respond to #print rather than #puts
+
 Bug fixes:
 
 * Works in irb (issue #1)

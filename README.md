@@ -5,20 +5,17 @@
 [![Code Climate](https://codeclimate.com/github/wconrad/cute_print.png)](https://codeclimate.com/github/wconrad/cute_print)
 
 Write debug output to stderr.  Optionally print the source filename
-and line number, or the source of the debug statement.  Easily debug
+and line number, or the source of the debug statement.  Easily inspect
 the middle of a call chain.
 
-## Features
+## Links
 
-* Inspects its output, like Kernel#p.
-* Writes to $stderr by default (good when $stdout is redirected).
-* Can print the filename and line number.
-* Can print the source of the value.
-* Can print a value in the middle of a call chain.
-* Configurable output device.
-
-This is for those who prefer to debug by writing things to the
-console.
+* This is a [rubygem](http://rubygems.org/gems/cute_print)
+* The source is on [github](https://github.com/wconrad/cute_print)
+* Cucumber-driven documentation is on
+  [relishapp](https://www.relishapp.com/wconrad/cute-print/v/0-2-0/docs)
+* API docs are at
+  [rubydoc.info](http://rubydoc.info/gems/cute_print/0.2.0/frames)
 
 ## Installation
 
@@ -30,7 +27,7 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
+Or install it yourself:
 
     $ gem install cute_print
 
@@ -40,46 +37,89 @@ Start with:
 
     require "cute_print"
 
-You can use q just like you use Kernel#p.  It will work the same,
-except that its output goes to $stderr instead of $stdout:
+**q** work just like
+[Kernel#p](http://www.ruby-doc.org/core-2.1.3/Kernel.html#method-i-p),
+except that it prints to $stderr instead of $stdout.
 
     q "abc"            # "abc"
     q [1, 2, 3 + 4]    # [1, 2, 7]
 
-You can have the debug source printed along with the value:
+By passing a block, you can have the debug source printed along with
+the value:
 
     i = 1
     q {i + 2}         # i + 2 is 3
 
-Kernel#ql will add the source location:
+**ql** will also print the source location:
 
     ql "abc"        # foo.rb:12: "abc"
     ql {1 + 2}      # foo.rb:13: 1 + 2 is 3
 
-When called with no arguments, #ql just prints the source location:
+When called with no arguments, ql just prints the source location:
 
     ql              # foo.rb:14
 
-Call chains can be a pain to debug, but it's easy with Kernel#tapq and
-Kernel#tapql:
+This is very handy for answering "which branch did it take?," or "did
+it even get to that method?"
+
+**qq** pretty-prints its arguments to $stderr:
+
+    a = (1..30).to_a
+    qq a            # [1,
+                    #  2,
+                    #  ...
+                    #  20,
+                    #  30]
+
+**qql** will also print the source location:
+
+    a = (1..30).to_a
+    qq a            # foo.rb:12: [1,
+                    #            2,
+                    #            ...
+                    #            20,
+                    #            30]
+
+**tapq** inspects the middle of a call chain:
 
     ["1", "2"].map(&:to_i).tapq.inject(&:+)
     # [1, 2]
 
+**tapql** will also print the source location:
+
     ["1", "2"].map(&:to_i).tapql.inject(&:+)
-    # prints: bar.rb:12: [1, 2]
+    # bar.rb:12: [1, 2]
 
-## Documentation
+## Configuration
 
-There's more.  Please see the [Full documentation][2] (relishapp).
+To change the output device:
+
+    CutePrint.configure do |c|
+      c.out = File.open('/tmp/debug')
+    end
+
+Any object that responds to #print will do.
+
+To cause #ql, #qql and #tapql to print the full path rather than just
+the filename:
+
+    CutePrint.configure do |c|
+      c.location_format = :path
+    end
+
+To reset the configuration to its defaults:
+
+    CutePrint.configure do |c|
+      c.reset
+    end
 
 ## Rubies supported
 
 This gem is known to work with these Rubies:
 
-* ruby-1.9.3-p547
-* ruby-2.0.0-p481
-* ruby-2.1.2p95
+* ruby-1.9.3
+* ruby-2.0.0
+* ruby-2.1.2
 
 ## Platforms supported
 
@@ -92,18 +132,6 @@ issue on github.
 The [_wrong_][1] gem includes the excellent #d method, which is very
 much like this gem's #q method.  This gem's ability to read the debug
 statement's source is derived from the _wrong_ gem.
-
-Differences between the _wrong_ gem and this gem:
-
-* This gem can print the source location
-* This gem writes to $stderr
-* This gem's output is configurable
-* This gem requires Ruby >= 1.9
-* This gem debugs call chains
-* The _wrong_ gem supports color output
-* The _wrong_ gem writes to stdout
-* The _wrong_ gem supports Ruby 1.8
-* The _wrong_ gem has assertions and more
 
 ## Versioning
 

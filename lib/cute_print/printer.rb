@@ -7,7 +7,7 @@ module CutePrint
     include FindsForeignCaller
 
     # The object to write to.  Defaults to $stderr.
-    # @return [#puts]
+    # @return [#print]
     attr_accessor :out
 
     # The location format.
