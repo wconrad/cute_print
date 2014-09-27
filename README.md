@@ -37,7 +37,7 @@ Start with:
 
     require "cute_print"
 
-**q** work just like
+**q** work like
 [Kernel#p](http://www.ruby-doc.org/core-2.1.3/Kernel.html#method-i-p),
 except that it prints to $stderr instead of $stdout.
 

@@ -43,6 +43,8 @@ module CutePrint
     #
     # If called with a block, prints the source code of the block and
     # the inspected result of the block.
+    #
+    # @return nil
     def q(*values, &block)
       formatter = Formatter.new(
         method: __method__,
@@ -52,6 +54,7 @@ module CutePrint
       )
       formatter.inspect
       formatter.write
+      nil
     end
 
     # Inspect and write one or more objects, with source location.
@@ -61,6 +64,8 @@ module CutePrint
     #
     # If called with a block, prints the source code of the block and
     # the inspected result of the block.
+    #
+    # @return nil
     def ql(*values, &block)
       formatter = Formatter.new(
         method: __method__,
@@ -70,6 +75,7 @@ module CutePrint
       formatter.inspect
       formatter.with_location @location_format
       formatter.write
+      nil
     end
 
     # Pretty-print and write one or more objects.
@@ -79,6 +85,8 @@ module CutePrint
     #
     # If called with a block, prints the source code of the block and
     # pretty-prints the result of the block.
+    #
+    # @return nil
     def qq(*values, &block)
       formatter = Formatter.new(
         method: __method__,
@@ -87,6 +95,7 @@ module CutePrint
         values: values)
       formatter.pretty_print
       formatter.write
+      nil
     end
 
     # Pretty-print and write one or more objects, with source location.
@@ -96,6 +105,8 @@ module CutePrint
     #
     # If called with a block, prints the source code of the block and
     # pretty-prints the result of the block.
+    #
+    # @return nil
     def qql(*values, &block)
       formatter = Formatter.new(
         method: __method__,
@@ -105,6 +116,7 @@ module CutePrint
       formatter.pretty_print
       formatter.with_location @location_format
       formatter.write
+      nil
     end
 
     private
