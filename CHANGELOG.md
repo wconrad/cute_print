@@ -4,6 +4,11 @@ Breaking changes:
 
 * Configure.out must respond to #print rather than #puts
 
+Enhancements:
+
+* Added Kernel#tapqq (call chain pretty-print)
+* Added Kernel#tapqql (call chain pretty-print, with source location)
+
 Bug fixes:
 
 * Works in irb (issue #1)

@@ -71,7 +71,7 @@ it even get to that method?"
                     #  20,
                     #  30]
 
-**qql** will also print the source location:
+**qql** also prints the source location:
 
     a = (1..30).to_a
     qq a            # foo.rb:12: [1,
@@ -85,10 +85,28 @@ it even get to that method?"
     ["1", "2"].map(&:to_i).tapq.inject(&:+)
     # [1, 2]
 
-**tapql** will also print the source location:
+**tapql** also prints the source location:
 
     ["1", "2"].map(&:to_i).tapql.inject(&:+)
     # bar.rb:12: [1, 2]
+
+**tapqq** pretty-prints the middle of a call chain:
+
+    a = (1..30).to_a
+    sum = a.tapqq.inject(:+)    # [1,
+                                # 2,
+                                # ...
+                                # 20,
+                                # 30]
+
+**tapqql** also prints the source location:
+
+    a = (1..30).to_a
+    sum = a.tapqq.inject(:+)    # foo.rb:12: [1,
+                                #             2,
+                                #             ...
+                                #             20,
+                                #             30]
 
 ## Configuration
 

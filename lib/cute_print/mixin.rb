@@ -44,5 +44,19 @@ module CutePrint
       self
     end
 
+    # Debug a call chain by pretty-printing self and then returning
+    # self.
+    def tapqq
+      qq self
+      self
+    end
+
+    # Debug a call chain by printing the source location,
+    # pretty-printing self, and then returning self.
+    def tapqql
+      qql self
+      self
+    end
+
   end
 end

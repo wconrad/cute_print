@@ -37,3 +37,59 @@ Feature: Inspect a call chain
       example.rb:2: [1, 2]
 
       """
+
+  Scenario: Pretty print
+    Given a file with:
+      """
+      require "cute_print"
+      a = [
+        "Once upon a time there were four little Rabbits, and their names were",
+        "Flopsy,",
+        "Mopsy,",
+        "Cotton-tail, and",
+        "Peter.",
+      ]
+      puts a.tapqq.map(&:size).inject(&:+)
+      """
+    Then stdout should be
+      """
+      104
+
+      """
+    And stderr should be
+      """
+      ["Once upon a time there were four little Rabbits, and their names were",
+       "Flopsy,",
+       "Mopsy,",
+       "Cotton-tail, and",
+       "Peter."]
+ 
+      """
+
+  Scenario: Pretty print with source location
+    Given a file with:
+      """
+      require "cute_print"
+      a = [
+        "Once upon a time there were four little Rabbits, and their names were",
+        "Flopsy,",
+        "Mopsy,",
+        "Cotton-tail, and",
+        "Peter.",
+      ]
+      puts a.tapqql.map(&:size).inject(&:+)
+      """
+    Then stdout should be
+      """
+      104
+
+      """
+    And stderr should be
+      """
+      example.rb:9: ["Once upon a time there were four little Rabbits, and their names were",
+                     "Flopsy,",
+                     "Mopsy,",
+                     "Cotton-tail, and",
+                     "Peter."]
+ 
+      """
