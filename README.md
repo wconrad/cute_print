@@ -71,6 +71,15 @@ it even get to that method?"
                     #  20,
                     #  30]
 
+When called with a bock, qq prints the debug source as well:
+
+    a = (1..30).to_a
+    qq {a}          # a is [1,
+                    #       2,
+                    #       ...
+                    #       20,
+                    #       30]
+
 **qql** also prints the source location:
 
     a = (1..30).to_a
@@ -79,6 +88,15 @@ it even get to that method?"
                     #            ...
                     #            20,
                     #            30]
+
+When called with a block, qql prints the debug source as well:
+
+    a = (1..30).to_a
+    qq {a}          # foo.rb:12: a is [1,
+                    #                  2,
+                    #                  ...
+                    #                  20,
+                    #                  30]
 
 **tapq** inspects the middle of a call chain:
 
