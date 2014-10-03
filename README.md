@@ -26,7 +26,7 @@ the middle of a call chain.
 * Cucumber-driven documentation is on
   [relishapp](https://www.relishapp.com/wconrad/cute-print/v/0-2-0/docs)
 * API docs are at
-  [rubydoc.info](http://rubydoc.info/gems/cute_print/0.2.0/frames)
+  [rubydoc.info](http://rubydoc.info/gems/cute_print)
 
 ## Installation
 
