@@ -8,6 +8,21 @@ Write debug output to stderr.  Optionally print the source filename
 and line number, or the source of the debug statement.  Easily inspect
 the middle of a call chain.
 
+## Why?
+
+* You want to insert debug code very quickly, and remove it just as
+  quickly.
+
+* You want to easily label the debug output with the source
+  location.
+
+* You want to easily label the debug output with the debug
+  code itself.
+
+* You want to easily debug the middle of a call chain.
+
+* You are debugging a program that is run with stdout redirected.
+
 ## Links
 
 * This is a [rubygem](http://rubygems.org/gems/cute_print)
