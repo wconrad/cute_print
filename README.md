@@ -10,7 +10,7 @@ the middle of a call chain.
 
 ## Why?
 
-* You want to insert debug code very quickly, and remove it just as
+* You want to print debug output very quickly, and remove it just as
   quickly.
 * You want to easily label the debug output with the source
   location.
