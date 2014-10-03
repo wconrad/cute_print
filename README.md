@@ -12,15 +12,11 @@ the middle of a call chain.
 
 * You want to insert debug code very quickly, and remove it just as
   quickly.
-
 * You want to easily label the debug output with the source
   location.
-
 * You want to easily label the debug output with the debug
   code itself.
-
 * You want to easily debug the middle of a call chain.
-
 * You are debugging a program that is run with stdout redirected.
 
 ## Links
