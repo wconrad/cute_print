@@ -29,7 +29,7 @@ Feature: Inspect with source location
 
       """
 
-  Scenario: Inspect with location
+  Scenario: Inspect with source
     Given a file named "example.rb" with:
       """
       require "cute_print"
