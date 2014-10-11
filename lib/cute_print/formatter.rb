@@ -12,7 +12,6 @@ module CutePrint
     DEFAULT_MAX_INLINE_LABEL_WIDTH = 40
 
     def initialize(opts = {})
-      @inspector = :inspect
       @method = opts.fetch(:method)
       @out = opts.fetch(:out)
       @block = opts.fetch(:block, nil)
