@@ -7,7 +7,7 @@ module CutePrint
     describe PrettyPrint do
 
       let(:value) { (1..5).to_a }
-      subject { PrettyPrint.new.format(width, value) }
+      subject { PrettyPrint.new.format(width, value).to_a }
 
       context "fits on one line" do
         let(:width) { 80 }

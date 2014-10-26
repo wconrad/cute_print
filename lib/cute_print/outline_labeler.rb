@@ -25,7 +25,7 @@ module CutePrint
 
     def indented_remaining_lines
       indent = ' ' * @label.size
-      lines[1..-1].map do |line|
+      lines.to_a[1..-1].map do |line|
         indent + line
       end
     end
