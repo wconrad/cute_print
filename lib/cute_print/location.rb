@@ -1,6 +1,7 @@
 require_relative "finds_foreign_caller"
 
 module CutePrint
+  # @api private
   class Location
 
     extend FindsForeignCaller
@@ -11,20 +12,13 @@ module CutePrint
       new(path, line_number)
     end
 
+    attr_reader :path
+    attr_reader :line_number
+
     def initialize(path, line_number)
       @path = path
       @line_number = line_number
     end
-
-    def format(template)
-      template % {
-        path: @path,
-        filename: filename,
-        line_number: @line_number,
-      }
-    end
-
-    private
 
     def filename
       File.basename(@path)

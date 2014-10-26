@@ -1,8 +1,11 @@
 ### Development
 
-Enhancements
+### 0.4.0 2014-10-25
 
-* Can be used without patching any core Ruby classes
+API changes
+
+* Can be used without patching any core Ruby classes (see README)
+* Use fewer output lines when possible while better respecting term width
 
 ### 0.3.0 / 2014-09-27
 
