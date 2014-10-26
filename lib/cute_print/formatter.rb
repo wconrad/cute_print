@@ -6,6 +6,7 @@ require_relative "labeler"
 require_relative "location"
 require_relative "location_label"
 require_relative "source_label"
+require_relative "values"
 
 module CutePrint
   # @api private
@@ -17,19 +18,17 @@ module CutePrint
       @method = opts.fetch(:method)
       @out = opts.fetch(:out)
       @block = opts.fetch(:block, nil)
-      @values = opts.fetch(:values, [])
+      @args = opts.fetch(:values, [])
+      @values = Values.new(@args, @block)
       @width = opts.fetch(:width, DEFAULT_WIDTH)
-      if @block && !@values.empty?
-        raise ArgumentError, "arguments and block are mutually exclusive"
-      end
       @location_label = nil
     end
 
     def write
-      if values.empty? && !label.empty?
+      if @values.empty? && !label.empty?
         write_line label.chomp(": ")
       else
-        values.each do |value|
+        @values.each do |value|
           labeler = Labeler.new(@format, @width, label, value)
           write_lines labeler.labeled
         end
@@ -50,14 +49,6 @@ module CutePrint
     end
 
     private
-
-    def values
-      if @block
-        [@block.call]
-      else
-        @values
-      end
-    end
 
     def write_lines(lines)
       lines.each do |line|
