@@ -1,9 +1,14 @@
+$VERBOSE=true
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "lib"))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
+require_relative "silence_warnings"
+
 require "pp"
 require "rspec"
-require "rspec-given"
+silence_warnings do
+  require "rspec-given"
+end
 
 globs = [
   "../test_support",

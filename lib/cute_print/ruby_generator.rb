@@ -1,7 +1,5 @@
 require "ruby2ruby"
 
-require_relative "ruby_generator"
-
 module CutePrint
 
   # @api private

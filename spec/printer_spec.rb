@@ -59,7 +59,7 @@ module CutePrint
             end
           end.map(&:join)
         end
-        Then { expect(out.string).to match /\A("foo"\n)+\Z/ }
+        Then { expect(out.string).to match(/\A("foo"\n)+\Z/) }
       end
 
     end

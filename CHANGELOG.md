@@ -1,16 +1,20 @@
-# 1.0.0 2014-12.13
+# 1.0.1 - 2014-12-21
+
+* Eliminate warnings in "-w" mode
+
+# 1.0.0 - 2014-12.13
 
 * Declare API stability with advent of v. 1.0.0
 * Update gems
 
-# 0.4.0 2014-10-25
+# 0.4.0 - 2014-10-25
 
 API changes
 
 * Can be used without patching any core Ruby classes (see README)
 * Use fewer output lines when possible while better respecting term width
 
-# 0.3.0 / 2014-09-27
+# 0.3.0 - 2014-09-27
 
 Breaking changes:
 
@@ -27,7 +31,7 @@ Bug fixes:
 * Works in irb (issue #1)
 * Is now thread safe (issue #4)
 
-# 0.2.0 / 2014-09-05
+# 0.2.0 - 2014-09-05
 
 Breaking changes:
 
