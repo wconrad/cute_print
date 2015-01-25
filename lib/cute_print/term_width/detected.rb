@@ -25,8 +25,9 @@ module CutePrint
       def detect_width
         return width_override_for_tests if width_override_for_tests
         width, _height = Hirb::Util.detect_terminal_size
+        # Hirb returns nil if it can't determine the terminal width.
         # Program run in Emacs have an apparent terminal width of "0".
-        width = FALLBACK_WIDTH if width == 0
+        width = FALLBACK_WIDTH if width.nil? || width == 0
         width
       end
 
