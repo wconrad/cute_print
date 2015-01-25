@@ -6,7 +6,7 @@ module CutePrint
     # A terminal width that tries to determine the terminal width
     # automatically.
     # @api private
-    class Detect
+    class Detected
 
       attr_reader :width
 

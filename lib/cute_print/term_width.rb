@@ -1,4 +1,4 @@
-require_relative "term_width/detect"
+require_relative "term_width/detected"
 require_relative "term_width/static"
 
 module CutePrint
@@ -19,7 +19,7 @@ module CutePrint
       when Integer
         Static.new(width)
       when :detect
-        Detect.new
+        Detected.new
       else
         raise ArgumentError, "Invalid terminal width: #{width.inspect}"
       end
