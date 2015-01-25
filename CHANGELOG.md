@@ -1,3 +1,14 @@
+* development
+
+Enhancements:
+
+* Determine the terminal width and use it instead of just hard-coding
+  "79"
+
+API changes
+
+* Added Configure#term_width to set the term width
+
 # 1.0.1 - 2014-12-21
 
 * Eliminate warnings in "-w" mode

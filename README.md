@@ -154,6 +154,18 @@ the filename:
       c.location_format = :path
     end
 
+The terminal width is detected, if possible, but you can override it:
+
+    CutePrint.configure do |c|
+      c.term_width = 132
+    end
+
+To set the terminal width back to being detected:
+
+    CutePrint.configure do |c|
+      c.term_width = :detect
+    end
+
 To reset the configuration to its defaults:
 
     CutePrint.configure do |c|
@@ -195,12 +207,6 @@ statement's source is derived from the _wrong_ gem.
 ## Versioning
 
 This gem uses [semantic versioning 2.0][3].
-
-While the version is < 1.0.0, the API can change with any version
-increment.  If you need stability, lock the gem down to a minor
-version, e.g.:
-
-    gem "cute_print", "~> 0.1.0"
 
 ## Contributing
 

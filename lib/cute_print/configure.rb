@@ -32,6 +32,12 @@ module CutePrint
     #   @see Printer#out
     delegate_accessor :out
 
+    # @!attribute [rw] term_width
+    #   @return [Integer, Symbol] The terminal width, or :detect if it
+    #     is being detected automatically.
+    #   @see Printer#term_width
+    delegate_accessor :term_width
+
   end
 
 end

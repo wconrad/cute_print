@@ -12,15 +12,13 @@ module CutePrint
   # @api private
   class Formatter
 
-    DEFAULT_WIDTH = 79
-
     def initialize(opts = {})
       @method = opts.fetch(:method)
       @out = opts.fetch(:out)
       @block = opts.fetch(:block, nil)
       @args = opts.fetch(:values, [])
       @values = Values.new(@args, @block)
-      @width = opts.fetch(:width, DEFAULT_WIDTH)
+      @width = opts.fetch(:width)
       @location_label = nil
     end
 

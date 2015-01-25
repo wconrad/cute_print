@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 gem "ruby_parser", "~> 3.6"
 gem "ruby2ruby", "~> 2.1"
+gem "hirb", "~> 0.7"
 
 group :test do
   gem "bundler", "~> 1.7"

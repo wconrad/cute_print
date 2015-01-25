@@ -1,5 +1,6 @@
 require_relative "formatter"
 require_relative "stderr_out"
+require_relative "term_width"
 
 module CutePrint
   class Printer
@@ -10,7 +11,7 @@ module CutePrint
     # @return [#print]
     attr_accessor :out
 
-    # The location format.
+    # The location format.  Defaults to :filename
     #
     # One of:
     # * :filename
@@ -18,6 +19,21 @@ module CutePrint
     #
     # @return [String]
     attr_accessor :location_format
+
+    # The terminal width.  May be an integer, or :detect to cause the
+    # terminal width to be determined automatically.  Defaults to
+    # :detect
+    #
+    # @!attribute [rw] term_width
+    #   @return [Integer, Symbol]
+
+    def term_width
+      @term_width.visible
+    end
+
+    def term_width=(value)
+      @term_width = TermWidth.make(value)
+    end
 
     # Create an instance.  If attributes are supplied, they override
     # the defaults.  For example:
@@ -34,16 +50,12 @@ module CutePrint
     def set_defaults
       @out = StderrOut.new
       @location_format = :filename
+      self.term_width = :detect
     end
 
     # @see CutePrint.q
     def q(*values, &block)
-      formatter = Formatter.new(
-        method: __method__,
-        out: @out,
-        block: block,
-        values: values
-      )
+      formatter = make_formatter(__method__, values, block)
       formatter.inspect
       formatter.write
       nil
@@ -51,11 +63,7 @@ module CutePrint
 
     # @see CutePrint.ql
     def ql(*values, &block)
-      formatter = Formatter.new(
-        method: __method__,
-        out: @out,
-        block: block,
-        values: values)
+      formatter = make_formatter(__method__, values, block)
       formatter.inspect
       formatter.with_location @location_format
       formatter.write
@@ -64,11 +72,7 @@ module CutePrint
 
     # @see CutePrint.qq
     def qq(*values, &block)
-      formatter = Formatter.new(
-        method: __method__,
-        out: @out,
-        block: block,
-        values: values)
+      formatter = make_formatter(__method__, values, block)
       formatter.pretty_print
       formatter.write
       nil
@@ -76,11 +80,7 @@ module CutePrint
 
     # @see CutePrint.qql
     def qql(*values, &block)
-      formatter = Formatter.new(
-        method: __method__,
-        out: @out,
-        block: block,
-        values: values)
+      formatter = make_formatter(__method__, values, block)
       formatter.pretty_print
       formatter.with_location @location_format
       formatter.write
@@ -88,6 +88,15 @@ module CutePrint
     end
 
     private
+
+    def make_formatter(method, values, block)
+      Formatter.new(
+        method: method,
+        block: block,
+        values: values,
+        out: @out,
+        width: @term_width.width)
+    end
 
   end
 end
