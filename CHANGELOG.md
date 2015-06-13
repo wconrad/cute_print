@@ -1,4 +1,4 @@
-* development
+* 1.1.0 - 2015-06-13
 
 Enhancements:
 
