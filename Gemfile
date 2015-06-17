@@ -5,7 +5,6 @@ gem "ruby2ruby", "~> 2.1"
 gem "hirb", "~> 0.7"
 
 group :test do
-  gem "bundler", "~> 1.10"
   gem "cucumber", "~> 2.0"
   gem "rake", "~> 10.4"
   gem "rspec", "~> 3.1"

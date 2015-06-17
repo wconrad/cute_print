@@ -92,7 +92,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.10)
   cucumber (~> 2.0)
   hirb (~> 0.7)
   jeweler (~> 2.0)
