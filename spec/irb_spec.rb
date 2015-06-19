@@ -13,6 +13,8 @@ describe CutePrint do
     _stdout_output, stderr_output =
       Open3.popen3("irb") do |stdin, stdout, stderr, wait_thr|
       stdin.puts "require #{lib_path.inspect}"
+      stdin.puts "def foo"
+      stdin.puts "end"
       stdin.puts "q {1 + 2}"
       stdin.close
       [stdout.read, stderr.read]
