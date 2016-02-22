@@ -110,7 +110,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = "http://github.com/wconrad/cute_print"
   s.licenses = ["MIT"]
-  s.rubygems_version = "2.5.1"
+  s.rubygems_version = "2.4.6"
   s.summary = "print debug to stderr, with flair"
 
   if s.respond_to? :specification_version then
