@@ -6,7 +6,7 @@ gem "hirb", "~> 0.7"
 
 group :test do
   gem "cucumber", "~> 2.0"
-  gem "rake", "~> 10.4"
+  gem "rake", "~> 11.2"
   gem "rspec", "~> 3.1"
   gem "rspec-given", "~> 3.5"
 end
