@@ -1,4 +1,4 @@
-# Development - 2016-06-15
+# 1.1.4 - 2016-06-15
 
 * Update gems
 	
