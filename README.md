@@ -4,9 +4,9 @@
 [![Build Status](https://travis-ci.org/wconrad/cute_print.png)](https://travis-ci.org/wconrad/cute_print)
 [![Code Climate](https://codeclimate.com/github/wconrad/cute_print.png)](https://codeclimate.com/github/wconrad/cute_print)
 
-Write debug output to stderr.  Optionally print the source filename
-and line number, or the source of the debug statement.  Easily inspect
-the middle of a call chain.
+cute_print writes debug output to stderr.  Optionally prints the
+source filename and line number, or the source of the debug statement.
+Easily inspect the middle of a call chain.
 
 ## Why?
 
