@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cute_print (1.1.4)
+    cute_print (1.2.0)
       hirb (~> 0.7)
       ruby2ruby (~> 2.1)
       ruby_parser (~> 3.6)

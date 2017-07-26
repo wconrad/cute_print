@@ -6,8 +6,8 @@ module CutePrint
   # by the library as well.
   module Release
 
-    VERSION = "1.1.4"
-    DATE = "2016-06-15"
+    VERSION = "1.2.0"
+    DATE = "2017-07-25"
 
   end
 end

@@ -1,6 +1,7 @@
-# Development
+# 1.1.5 - 2017-07-25
 
 * Remove jeweler gem as a development dependency
+* Added CutePrint::Release with version and release date constants
 * Update gems
 
 # 1.1.4 - 2016-06-15
