@@ -71,6 +71,7 @@ Gem::Specification.new do |s|
   s.files += Dir["lib/**/*.rb"]
   s.homepage = "http://github.com/wconrad/cute_print"
   s.licenses = ["MIT"]
+  s.required_ruby_version = ">= 1.9.3"
   s.rubygems_version = "2.5.1"
   s.summary = "print debug to stderr, with flair"
   s.specification_version = 4
