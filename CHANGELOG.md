@@ -1,3 +1,7 @@
+# Development
+
+* Document support for Ruby 2.3 and 2.4
+	
 # 1.1.5 - 2017-07-25
 
 * Remove jeweler gem as a development dependency
@@ -7,7 +11,7 @@
 # 1.1.4 - 2016-06-15
 
 * Update gems
-	
+
 # 1.1.3 - 2016-02-22
 
 * Update gems

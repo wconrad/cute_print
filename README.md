@@ -192,6 +192,8 @@ This gem is known to work with these Rubies:
 * ruby-2.0
 * ruby-2.1
 * ruby-2.2
+* ruby-2.3
+* ruby-2.4
 
 ## Platforms supported
 
