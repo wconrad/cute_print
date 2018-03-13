@@ -184,29 +184,6 @@ methods:
 
 The "tap" methods are not available when using CutePrint this way.
 
-## Rubies supported
-
-This gem is known to work with these Rubies:
-
-* ruby-1.9.3
-* ruby-2.0
-* ruby-2.1
-* ruby-2.2
-* ruby-2.3
-* ruby-2.4
-
-## Platforms supported
-
-This gem is developed and tested with Linux.  It should work on
-Windows and OSX as well.  If it does not work for you, please file an
-issue on github.
-
-## Other gems with similar functions
-
-The [_wrong_][1] gem includes the excellent #d method, which is very
-much like this gem's #q method.  This gem's ability to read the debug
-statement's source is derived from the _wrong_ gem.
-
 ## Ruby versions
 
 Here we list the version of Ruby that cute_print is known to work
@@ -220,7 +197,8 @@ longer supported by the Ruby team:
 * ruby-1.9.3 (with warnings)
 * ruby-2.1.10
 
-cute_print may drop support for these Rubies at any time.
+cute_print does not officially support these Rubies.  That it works
+with these versions is no longer guaranteed.
 
 ### Supported
 
@@ -230,6 +208,18 @@ cute_print works with these version of Ruby that are still supported:
 * ruby-2.3.6
 * ruby-2.4.3 (with warnings)
 * ruby-2.5.0 (with warnings)
+
+## Platforms supported
+
+This gem is developed and tested with Linux.  It should work on
+Windows and OSX as well.  If it does not work for you, please file an
+issue on github.
+
+## Other gems with similar functions
+
+The [_wrong_][1] gem includes the excellent #d method, which is very
+much like this gem's #q method.  This gem's ability to read the debug
+statement's source is derived from the _wrong_ gem.
 
 ## Versioning
 
