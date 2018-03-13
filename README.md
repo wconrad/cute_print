@@ -193,7 +193,7 @@ As of version 1.1.6, cute_print works with these versions of Ruby:
 * ruby-2.3.6
 * ruby-2.2.9
 
-For older versions of Ruby, use cute_print version 1.1.5, which works
+For older versions of Ruby, use cute_print version 1.2.0, which works
 with:
 
 * ruby-2.1.10

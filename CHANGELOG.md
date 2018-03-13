@@ -1,8 +1,11 @@
-# Development
+# 1.3.0 - 2018-03-13
 
-* Rubies prior to ruby-2.2 are no longer supported.
-	
-# 1.1.5 - 2017-07-25
+* Rubies prior to 2.2 are no longer supported.
+* Update gems
+* No longer require hirb gem
+* Removed warnings in Rubies 2.4 and 2.5
+
+# 1.2.0 - 2017-07-25
 
 * Remove jeweler gem as a development dependency
 * Added CutePrint::Release with version and release date constants
