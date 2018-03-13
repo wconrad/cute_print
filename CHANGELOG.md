@@ -1,6 +1,6 @@
 # Development
 
-* Document support for Ruby 2.3 and 2.4
+* Rubies prior to ruby-2.2 are no longer supported.
 	
 # 1.1.5 - 2017-07-25
 
