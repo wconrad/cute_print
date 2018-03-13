@@ -207,6 +207,30 @@ The [_wrong_][1] gem includes the excellent #d method, which is very
 much like this gem's #q method.  This gem's ability to read the debug
 statement's source is derived from the _wrong_ gem.
 
+## Ruby versions
+
+Here we list the version of Ruby that cute_print is known to work
+with.  The names given are those used by _rvm_.
+
+### Unsupported
+
+cute_print seems to work with these versions of Ruby that are no
+longer supported by the Ruby team:
+
+* ruby-1.9.3 (with warnings)
+* ruby-2.1.10
+
+cute_print may drop support for these Rubies at any time.
+
+### Supported
+
+cute_print works with these version of Ruby that are still supported:
+
+* ruby-2.2.9
+* ruby-2.3.6
+* ruby-2.4.3 (with warnings)
+* ruby-2.5.0 (with warnings)
+
 ## Versioning
 
 This gem uses [semantic versioning 2.0][3].
