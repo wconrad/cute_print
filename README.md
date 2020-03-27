@@ -186,15 +186,22 @@ The "tap" methods are not available when using CutePrint this way.
 
 ## Ruby versions
 
-As of version 1.1.6, cute_print works with these versions of Ruby:
+As of version 1.3.0, cute_print is known to work with these versions
+of Ruby:
+
+* ruby-2.5.7
+* ruby-2.4.9
+
+As of version 1.1.6, cute_print is known to work with these versions
+of Ruby:
 
 * ruby-2.5.0
 * ruby-2.4.3
 * ruby-2.3.6
 * ruby-2.2.9
 
-For older versions of Ruby, use cute_print version 1.2.0, which works
-with:
+As of version 1.2.0, cute_print is known to work with these versin of
+Ruby:
 
 * ruby-2.1.10
 * ruby-1.9.3 (tests pass but with warnings)
