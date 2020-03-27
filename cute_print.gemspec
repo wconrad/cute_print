@@ -75,14 +75,13 @@ Gem::Specification.new do |s|
   s.rubygems_version = "2.5.1"
   s.summary = "print debug to stderr, with flair"
   s.specification_version = 4
-  s.add_development_dependency("cucumber", "~> 3.0")
+  s.add_development_dependency("cucumber", "~> 3.1")
   s.add_development_dependency("irb", "~> 1.2")
-  s.add_development_dependency("rake", "~> 12.0")
-  s.add_development_dependency("redcarpet", "~> 3.2")
-  s.add_development_dependency("rspec", "~> 3.1")
-  s.add_development_dependency("rspec-given", "~> 3.5")
-  s.add_development_dependency("yard", "~> 0.9.9")
-  s.add_runtime_dependency("ruby2ruby", "~> 2.1")
-  s.add_runtime_dependency("ruby_parser", "~> 3.6")
+  s.add_development_dependency("rake", "~> 13.0")
+  s.add_development_dependency("redcarpet", "~> 3.5")
+  s.add_development_dependency("rspec", "~> 3.9")
+  s.add_development_dependency("rspec-given", "~> 3.8")
+  s.add_development_dependency("yard", "~> 0.9.24")
+  s.add_runtime_dependency("ruby2ruby", "~> 2.4")
+  s.add_runtime_dependency("ruby_parser", "~> 3.14")
 end
-
