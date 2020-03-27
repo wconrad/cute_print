@@ -207,7 +207,7 @@ of Ruby:
 * ruby-2.3.6
 * ruby-2.2.9
 
-As of version 1.2.0, cute_print is known to work with these versin of
+As of version 1.1.5, cute_print is known to work with these versin of
 Ruby:
 
 * ruby-2.1.10
