@@ -1,3 +1,8 @@
+# development
+
+* Support Ruby 2.6 and 2.7
+* Drop support for Ruby 2.4
+
 # 1.3.0 - 2018-03-13
 
 * Rubies prior to 2.2 are no longer supported.

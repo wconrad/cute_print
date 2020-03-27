@@ -15,11 +15,14 @@ if defined? IRB
 
       # Save every line that is evaluated.  This gives cute_print a
       # way to get the source when it is run in irb.
-      define_method :evaluate do |src, line_no|
+      undef_method :evaluate
+      define_method :evaluate do |src, line_no, **etc|
+        p src
+        p line_no
         @all_lines ||= []
         @all_lines += ["\n"] * (line_no - @all_lines.size - 1)
         @all_lines += src.lines.to_a
-        original_evaluate.bind(self).call src, line_no
+        original_evaluate.bind(self).call src, line_no, **etc
       end
 
     end

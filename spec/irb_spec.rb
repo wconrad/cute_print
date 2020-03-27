@@ -1,6 +1,5 @@
 require_relative "spec_helper"
 
-require "irb"
 require "open3"
 require "stringio"
 

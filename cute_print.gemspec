@@ -76,6 +76,7 @@ Gem::Specification.new do |s|
   s.summary = "print debug to stderr, with flair"
   s.specification_version = 4
   s.add_development_dependency("cucumber", "~> 3.0")
+  s.add_development_dependency("irb", "~> 1.2")
   s.add_development_dependency("rake", "~> 12.0")
   s.add_development_dependency("redcarpet", "~> 3.2")
   s.add_development_dependency("rspec", "~> 3.1")
