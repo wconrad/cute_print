@@ -1,4 +1,4 @@
-# development
+# 1.4.0 - 2020-03-27
 
 * Support Ruby 2.6 and 2.7
 * Drop support for Ruby 2.4
